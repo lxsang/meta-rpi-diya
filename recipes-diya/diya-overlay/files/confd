@@ -1,0 +1,39 @@
+#!/bin/sh
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+DESC="Auto deployment configuration from media"
+
+case "$1" in
+    start)
+        echo -n "Start $DESC: "
+        if [ -f "/boot/fs_resize" ]; then
+            /usr/bin/expandfs.sh
+            touch /boot/home_partition_should_be_formated
+            rm /boot/fs_resize
+            reboot
+        fi
+        if [ -f "/boot/home_partition_should_be_formated" ]; then
+            echo "Trying to format the home partition"
+            umount /dev/mmcblk0p3
+            yes | mkfs.ext4 /dev/mmcblk0p3
+            mount /dev/mmcblk0p3 /home
+            mkdir -p /home/diya/etc/network
+            mkdir -p /home/diya/etc/dropbear
+            chown -R diya:diya /home/diya
+            rm /boot/home_partition_should_be_formated
+        fi
+        if [ -e "/boot/install" ];then
+            cp -rf /boot/install/* /home/diya
+            rm -rf /boot/install
+            reboot
+        fi
+        # display information
+    ;;
+    *)
+        N=/etc/init.d/$NAME
+        echo "Usage: $N {start}" >&2
+        exit 1
+    ;;
+esac
+
+exit 0

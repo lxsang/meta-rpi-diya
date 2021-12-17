@@ -1,0 +1,73 @@
+From 7117dbf8b8defcf69f7aac3f7daf97ec00e5e73a Mon Sep 17 00:00:00 2001
+From: Xuan Sang LE <xsang.le@gmail.com>
+Date: Wed, 15 Dec 2021 02:24:37 +0100
+Subject: [PATCH] Update configure
+
+---
+ platforms/unix/config/configure | 53 ---------------------------------
+ 1 file changed, 53 deletions(-)
+
+diff --git a/platforms/unix/config/configure b/platforms/unix/config/configure
+index f9e8c24aa5..85aacaa5e6 100755
+--- a/configure
++++ b/configure
+@@ -13292,59 +13292,6 @@ fi
+ 
+ 
+ 
+-# Check size assumptions of basic data types
+-
+-
+-  { $as_echo "$as_me:${as_lineno-$LINENO}: checking \"size of int\"" >&5
+-$as_echo_n "checking \"size of int\"... " >&6; }
+-  if test "$cross_compiling" = yes; then :
+-  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+-as_fn_error $? "cannot run test program while cross compiling
+-See \`config.log' for more details" "$LINENO" 5; }
+-else
+-  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+-/* end confdefs.h.  */
+-#include <sys/types.h>
+-	      int main(){return(sizeof(int) == 4)?0:1;}
+-_ACEOF
+-if ac_fn_c_try_run "$LINENO"; then :
+-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: \"okay\"" >&5
+-$as_echo "\"okay\"" >&6; }
+-else
+-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: \"bad\"" >&5
+-$as_echo "\"bad\"" >&6; }
+-    as_fn_error $? "\"one or more basic data types has an incompatible size: giving up\"" "$LINENO" 5
+-fi
+-rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+-  conftest.$ac_objext conftest.beam conftest.$ac_ext
+-fi
+-
+-
+-  { $as_echo "$as_me:${as_lineno-$LINENO}: checking \"size of double\"" >&5
+-$as_echo_n "checking \"size of double\"... " >&6; }
+-  if test "$cross_compiling" = yes; then :
+-  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+-as_fn_error $? "cannot run test program while cross compiling
+-See \`config.log' for more details" "$LINENO" 5; }
+-else
+-  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+-/* end confdefs.h.  */
+-#include <sys/types.h>
+-	      int main(){return(sizeof(double) == 8)?0:1;}
+-_ACEOF
+-if ac_fn_c_try_run "$LINENO"; then :
+-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: \"okay\"" >&5
+-$as_echo "\"okay\"" >&6; }
+-else
+-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: \"bad\"" >&5
+-$as_echo "\"bad\"" >&6; }
+-    as_fn_error $? "\"one or more basic data types has an incompatible size: giving up\"" "$LINENO" 5
+-fi
+-rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+-  conftest.$ac_objext conftest.beam conftest.$ac_ext
+-fi
+ 
+ 
+ # The cast to long int works around a bug in the HP C Compiler
