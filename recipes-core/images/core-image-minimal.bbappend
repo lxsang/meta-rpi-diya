@@ -33,8 +33,8 @@ IMAGE_INSTALL:append = "mpg123 \
                         libsdl2-net \
                         example \
                         htop \
-                        opensmalltalk-cog-vm \
                         waveshare-2.8-lcd \
                         realtekfw \
                         diya-overlay \
-                        "
+                        opensmalltalk-cog-vm \
+                        " 
