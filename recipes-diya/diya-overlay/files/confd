@@ -28,6 +28,9 @@ case "$1" in
             reboot
         fi
         # display information
+        # disable wifi power save
+        /usr/sbin/iw wlan0 set power_save off
+        /sbin/ip a
     ;;
     *)
         N=/etc/init.d/$NAME

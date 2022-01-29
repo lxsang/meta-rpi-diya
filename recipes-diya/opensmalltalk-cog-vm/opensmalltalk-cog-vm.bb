@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 #FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-DEPENDS = "libsdl2 "
+DEPENDS = "libsdl2 mesa freetype"
 
 # pharo 9.0
 # SRCREV = "${AUTOREV}"
@@ -18,11 +18,15 @@ S="${WORKDIR}/git/platforms/unix/config"
 B="${WORKDIR}/build"
 inherit autotools
 
-TARGET_CFLAGS += " -D__ARM_ARCH_6__ -DDEBUGVM=0  "
+TARGET_CFLAGS:raspberrypi += " -D__ARM_ARCH_6__  "
+TARGET_CF_GLAGS += " -DDEBUGVM=0 "
 
-EXTRA_OECONF:append="   --with-src=src/spur32.cog \
-                        --with-sysroot=${STAGING_DIR_TARGET} \
+EXTRA_OECONF:append="   --with-sysroot=${STAGING_DIR_TARGET} \
                         --without-npsqueak"
+EXTRA_OECONF:raspberrypi:append = " --with-src=src/spur32.cog "
+EXTRA_OECONF:raspberrypi0-2w-64:append = " --with-src=src/spur64.cog "
+
+
 INSANE_SKIP += " configure-unsafe "
 
 do_configure() {

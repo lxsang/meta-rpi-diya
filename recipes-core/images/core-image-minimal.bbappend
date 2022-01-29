@@ -24,6 +24,7 @@ IMAGE_INSTALL:append = "mpg123 \
                         libgl-mesa \
                         libglapi \
                         glew \
+                        freetype \
                         freeglut \
                         mesa \
                         libsdl2 \

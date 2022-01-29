@@ -102,6 +102,7 @@ int main( int argc, char** argv )
         SDL_SetRenderDrawColor( renderer, rand() % 256, rand() % 256, rand() % 256, SDL_ALPHA_OPAQUE );
         SDL_RenderClear( renderer );
         SDL_RenderPresent( renderer );
+        SDL_Delay(50);
     }
 
     SDL_DestroyRenderer( renderer );
