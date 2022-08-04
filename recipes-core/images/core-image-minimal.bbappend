@@ -37,5 +37,5 @@ IMAGE_INSTALL:append = "mpg123 \
                         waveshare-2.8-lcd \
                         realtekfw \
                         diya-overlay \
-                        opensmalltalk-cog-vm \
                         " 
+# \ opensmalltalk-cog-vm
