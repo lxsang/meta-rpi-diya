@@ -38,4 +38,5 @@ IMAGE_INSTALL:append = "mpg123 \
                         realtekfw \
                         diya-overlay \
                         opensmalltalk-cog-vm \
+                        libvncserver \
                         " 
