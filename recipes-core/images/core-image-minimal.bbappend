@@ -10,9 +10,6 @@ EXTRA_USERS_PARAMS = "usermod -p BJpK8ADNDLsGg root; \
                         usermod -a -G input diya; \
                         usermod -a -G dialout diya \
                         "
-                        #; \
-                        #usermod -a -G audio diya; \
-                        #usermod -a -G avahi diya \
 IMAGE_BOOT_FILES:append = "fs_resize"
 
 IMAGE_INSTALL:append = "libcurl \
@@ -37,5 +34,9 @@ IMAGE_INSTALL:append = "libcurl \
                         realtekfw \
                         diya-overlay \
                         " 
-# \ opensmalltalk-cog-vm
-# mpg123 \
+# opensmalltalk-cog-vm
+# mpg123 
+
+# 
+# usermod -a -G audio diya;
+# usermod -a -G avahi diya
