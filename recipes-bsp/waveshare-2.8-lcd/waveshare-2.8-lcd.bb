@@ -7,9 +7,14 @@ inherit devicetree
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 SRC_URI = " file://dts/ads1115-i2c-gpio.dts "
 
+S = "${WORKDIR}/dts"
+DT_FILES = "ads1115-i2c-gpio.dtbo"
+
+COMPATIBLE_MACHINE = "raspberrypi.*"
+
 do_deploy:append () {
     install -d ${DEPLOY_DIR_IMAGE}
-    install -m 0755 ${THISDIR}/files/dts/ads1115-i2c-gpio.dtbo ${DEPLOY_DIR_IMAGE}/ads1115-i2c-gpio.dtbo
+    install -m 0755 ${B}/ads1115-i2c-gpio.dtbo ${DEPLOY_DIR_IMAGE}/ads1115-i2c-gpio.dtbo
     install -m 0755 ${THISDIR}/files/vc4-kms-DPI-28inch.dtbo ${DEPLOY_DIR_IMAGE}/vc4-kms-DPI-28inch.dtbo
     install -m 0755 ${THISDIR}/files/waveshare-28dpi-3b-4b.dtbo ${DEPLOY_DIR_IMAGE}/waveshare-28dpi-3b-4b.dtbo
     install -m 0755 ${THISDIR}/files/waveshare-28dpi-3b.dtbo ${DEPLOY_DIR_IMAGE}/waveshare-28dpi-3b.dtbo
