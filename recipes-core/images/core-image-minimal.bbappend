@@ -33,9 +33,10 @@ IMAGE_INSTALL:append = "libcurl \
                         waveshare-2.8-lcd \
                         realtekfw \
                         diya-overlay \
+                        i2c-tools \
+                        bash \
+                        nano \
                         " 
-# opensmalltalk-cog-vm
-# mpg123 
 
 # 
 # usermod -a -G audio diya;
