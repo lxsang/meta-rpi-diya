@@ -5,6 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 do_deploy () {
     install -d ${DEPLOY_DIR_IMAGE}
+    install -m 0755 ${THISDIR}/files/vc4-kms-DPI-28inch.dtbo ${DEPLOY_DIR_IMAGE}/vc4-kms-DPI-28inch.dtbo
     install -m 0755 ${THISDIR}/files/waveshare-28dpi-3b-4b.dtbo ${DEPLOY_DIR_IMAGE}/waveshare-28dpi-3b-4b.dtbo
     install -m 0755 ${THISDIR}/files/waveshare-28dpi-3b.dtbo ${DEPLOY_DIR_IMAGE}/waveshare-28dpi-3b.dtbo
     install -m 0755 ${THISDIR}/files/waveshare-28dpi-4b.dtbo ${DEPLOY_DIR_IMAGE}/waveshare-28dpi-4b.dtbo
