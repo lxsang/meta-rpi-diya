@@ -6,6 +6,7 @@ DESC="Auto deployment configuration from media"
 case "$1" in
     start)
         echo -n "Start $DESC: "
+        dmesg | tee /boot/kern.log
         if [ -f "/boot/fs_resize" ]; then
             /usr/bin/expandfs.sh
             touch /boot/home_partition_should_be_formated
