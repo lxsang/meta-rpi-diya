@@ -1,0 +1,101 @@
+/*
+ * vc4-kms-waveshare-28dpi-overlay.dts
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/bcm2835.h>
+
+/ {
+	compatible = "brcm,bcm2835";
+	fragment@0 {
+		target = <&gpio>;
+		__overlay__ {
+			pwm_pins: pwm_pins {
+				brcm,pins = <18>;
+				brcm,function = <BCM2835_FSEL_ALT5>;
+				brcm,pull = <0>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&pwm>;
+		frag1: __overlay__ {
+			pinctrl-names = "default";
+			pinctrl-0 = <&pwm_pins>;
+			assigned-clock-rates = <100000000>;
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target-path = "/";
+		__overlay__ {
+			//#gpio-cells = <2>;
+			/* Panel backlight through PWM0_0 on GPIO18 */
+			backlight_lvds: backlight {
+				compatible = "pwm-backlight";
+				pwms = <&pwm 0 10000000>;
+				brightness-levels = <0 1000>;
+				num-interpolated-steps = <1000>;
+				default-brightness-level = <1000>;
+			};
+
+			panel: panel {
+				reg = <0>;
+				compatible = "panel-dpi";
+				backlight = <&backlight_lvds>;
+
+				width-mm = <154>;
+				height-mm = <86>;
+				bus-format = <0x1015>;
+
+				timing: panel-timing {
+					clock-frequency = <28000000>;
+					hactive = <480>;
+					hfront-porch = <26>;
+					hsync-len = <16>;
+					hback-porch = <10>;
+					hsync-active = <0>;
+					vactive = <640>;
+					vfront-porch = <25>;
+					vsync-len = <10>;
+					vback-porch = <16>;
+					vsync-active = <0>;
+
+					de-active = <1>;
+					pixelclk-active = <1>;
+				};
+
+				port {
+					panel_in: endpoint {
+						remote-endpoint = <&dpi_out>;
+					};
+				};
+			};
+		};
+	};
+
+	fragment@3 {
+		target = <&dpi>;
+		dpi_node: __overlay__  {
+			status = "okay";
+
+			pinctrl-names = "default";
+			
+			/* refer to /home/pi/linux/arch/arm/boot/dts/bcm270x.dtsi
+			 * for the pin multiplex setting
+			 */
+			pinctrl-0 = <&dpi_18bit_cpadhi_gpio0>;
+
+			port {
+				dpi_out: endpoint {
+					remote-endpoint = <&panel_in>;
+				};
+			};
+		};
+	};
+};
