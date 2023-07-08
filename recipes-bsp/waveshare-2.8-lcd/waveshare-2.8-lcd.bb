@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 inherit devicetree
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
-SRC_URI = " file://dts/ads1115-i2c-gpio.dts file://vc4-kms-waveshare-28dpi.dts "
+SRC_URI = " file://dts/ads1115-i2c-gpio.dts file://dts/vc4-kms-waveshare-28dpi.dts "
 
 S = "${WORKDIR}/dts"
 DT_FILES = "ads1115-i2c-gpio.dtbo vc4-kms-waveshare-28dpi.dtbo"
