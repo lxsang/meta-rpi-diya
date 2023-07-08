@@ -36,6 +36,7 @@ IMAGE_INSTALL:append = "libcurl \
                         i2c-tools \
                         bash \
                         nano \
+                        wpa-supplicant \
                         " 
 
 # 
