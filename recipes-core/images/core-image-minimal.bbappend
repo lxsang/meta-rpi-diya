@@ -37,6 +37,7 @@ IMAGE_INSTALL:append = "libcurl \
                         bash \
                         nano \
                         wpa-supplicant \
+                        evtest \
                         raspi-gpio \
                         " 
 
