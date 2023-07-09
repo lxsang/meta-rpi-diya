@@ -84,10 +84,10 @@ int main( int argc, char** argv )
                 running = false;
                 break;
             case SDL_KEYDOWN:
-                if(ev.key.keysym.sym == SDLK_ESCAPE)
-                {
-                    running = false;
-                }
+                //if(ev.key.keysym.sym == SDLK_ESCAPE)
+                //{
+                running = false;
+                //}
                 break;
             case SDL_FINGERDOWN:
             case SDL_FINGERMOTION:

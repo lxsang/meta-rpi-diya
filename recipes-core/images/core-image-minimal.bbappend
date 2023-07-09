@@ -8,7 +8,8 @@ EXTRA_USERS_PARAMS = "usermod -p BJpK8ADNDLsGg root; \
                         usermod -a -G video diya; \
                         usermod -a -G tty diya; \
                         usermod -a -G input diya; \
-                        usermod -a -G dialout diya \
+                        usermod -a -G dialout diya; \
+                        usermod -a -G sudo diya \
                         "
 IMAGE_BOOT_FILES:append = "fs_resize"
 
@@ -20,10 +21,12 @@ IMAGE_INSTALL:append = "libcurl \
                         libgl-mesa \
                         libglapi \
                         libudev \
+                        udev \
                         glew \
                         freetype \
                         freeglut \
                         mesa \
+                        sudo \
                         libsdl2 \
                         libsdl2-ttf \
                         libsdl2-image \
