@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 # code
 # SRCREV = "${AUTOREV}"
-SRC_URI = "git://github.com/RPi-Distro/raspi-gpio.git"
+SRC_URI = "git://github.com/RPi-Distro/raspi-gpio.git;protocol=https;branch=master"
 
 # S="${WORKDIR}/git/platforms/unix/config"
 # B="${WORKDIR}/build"
