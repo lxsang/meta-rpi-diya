@@ -19,6 +19,7 @@ IMAGE_INSTALL:append = "libcurl \
                         libegl-mesa \
                         libgl-mesa \
                         libglapi \
+                        libudev \
                         glew \
                         freetype \
                         freeglut \
