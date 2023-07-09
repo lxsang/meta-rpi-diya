@@ -1,6 +1,4 @@
 DEPENS += " mesa libdrm virtual/libgbm virtual/libgles2 "
-# alsa
-EXTRA_OECONF:append=" --disable-video-x11 \
-                        --disable-video-wayland \
-                        --enable-video-kmsdrm \
-                        --enable-video-opengles"
+
+PACKAGECONFIG = " kmsdrm opengl gles2 "
+# PACKAGECONFIG:remove = "x11 wayland"
