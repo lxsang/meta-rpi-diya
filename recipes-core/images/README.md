@@ -10,6 +10,7 @@ pulseaudio-module-echo-cancel \
 pulseaudio-misc \
 i2c-tools \
 mpg123
+libsdl2-mixer \
 #tslib 
 #tslib-tests 
 #tslib-calibrate 
