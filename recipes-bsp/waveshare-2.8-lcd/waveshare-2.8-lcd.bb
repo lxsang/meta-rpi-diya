@@ -5,16 +5,16 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 inherit devicetree
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
-SRC_URI = " file://dts/ads1115-i2c-gpio.dts file://dts/vc4-kms-waveshare-28dpi.dts "
+SRC_URI = " file://dts/ads1115-i2c-gpio.dts "
 
 S = "${WORKDIR}/dts"
-DT_FILES = "ads1115-i2c-gpio.dtbo vc4-kms-waveshare-28dpi.dtbo"
+DT_FILES = "ads1115-i2c-gpio.dtbo"
 
 COMPATIBLE_MACHINE = "raspberrypi.*"
 
 do_deploy:append () {
     install -d ${DEPLOY_DIR_IMAGE}
-    install -m 0755 ${B}/vc4-kms-waveshare-28dpi.dtbo ${DEPLOY_DIR_IMAGE}/vc4-kms-waveshare-28dpi.dtbo
+    # install -m 0755 ${B}/vc4-kms-waveshare-28dpi.dtbo ${DEPLOY_DIR_IMAGE}/vc4-kms-waveshare-28dpi.dtbo
     install -m 0755 ${B}/ads1115-i2c-gpio.dtbo ${DEPLOY_DIR_IMAGE}/ads1115-i2c-gpio.dtbo
     install -m 0755 ${THISDIR}/files/vc4-kms-DPI-28inch.dtbo ${DEPLOY_DIR_IMAGE}/vc4-kms-DPI-28inch.dtbo
     install -m 0755 ${THISDIR}/files/waveshare-28dpi-3b-4b.dtbo ${DEPLOY_DIR_IMAGE}/waveshare-28dpi-3b-4b.dtbo
