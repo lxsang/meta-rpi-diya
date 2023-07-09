@@ -1,0 +1,31 @@
+diff --git a/conf/layer.conf b/conf/layer.conf
+index 2fa87d9..eb141fb 100644
+--- a/conf/layer.conf
++++ b/conf/layer.conf
+@@ -2,8 +2,8 @@
+ BBPATH .= ":${LAYERDIR}"
+ 
+ # We have recipes-* directories, add to BBFILES
+-BBFILES += "${LAYERDIR}/recipes-*/*/*.bb \
+-            ${LAYERDIR}/recipes-*/*/*.bbappend"
++BBFILES += " ${LAYERDIR}/recipes-*/*/*.bb \
++            ${LAYERDIR}/recipes-*/*/*.bbappend "
+ 
+ BBFILE_COLLECTIONS += "meta-rpi-diya"
+ BBFILE_PATTERN_meta-rpi-diya = "^${LAYERDIR}/"
+diff --git a/recipes-graphics/libsdl2/libsdl2_%.bbappend b/recipes-graphics/libsdl2/libsdl2_%.bbappend
+index 937abb6..8e22324 100644
+--- a/recipes-graphics/libsdl2/libsdl2_%.bbappend
++++ b/recipes-graphics/libsdl2/libsdl2_%.bbappend
+@@ -1,6 +1,4 @@
+ DEPENS += " mesa libdrm virtual/libgbm virtual/libgles2 "
+-# alsa
+-EXTRA_OECONF:append=" --disable-video-x11 \
+-                        --disable-video-wayland \
+-                        --enable-video-kmsdrm \
+-                        --enable-video-opengles"
+\ No newline at end of file
++
++PACKAGECONFIG = " kmsdrm opengl gles2 "
++# PACKAGECONFIG:remove = "x11 wayland"
+\ No newline at end of file
