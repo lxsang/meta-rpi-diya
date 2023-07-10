@@ -25,8 +25,7 @@ case "$1" in
             rm /boot/home_partition_should_be_formated
         fi
         if [ -e "/boot/wpa_supplicant.conf" ];then
-            install -m 0644 /boot/wpa_supplicant.conf /var/etc/network/
-            rm /boot/wpa_supplicant.conf
+            mv /boot/wpa_supplicant.conf /var/etc/network/
             reboot
         fi
         # display information
