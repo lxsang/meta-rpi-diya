@@ -4,7 +4,7 @@
 
 part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label boot --active --align 4096 --size 32
 # read only roofs
-part / --source rootfs --ondisk mmcblk0 --fstype=ext4 --label root --align 4096 --size 150 --exclude-path=home/ --exclude-path=var/etc
+part / --source rootfs --ondisk mmcblk0 --fstype=ext4 --label root --align 4096 --size 150
 # modifiable configurations stored in /var/etc
 part /var/etc --source rootfs --rootfs-dir=${IMAGE_ROOTFS}/var/etc --ondisk mmcblk0 --fstype=ext4 --label diya --align 1024 --size 32
 # home partition
