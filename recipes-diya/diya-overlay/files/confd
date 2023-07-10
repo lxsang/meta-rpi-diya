@@ -25,9 +25,9 @@ case "$1" in
             chown -R diya:diya /home/diya
             rm /boot/home_partition_should_be_formated
         fi
-        if [ -e "/boot/install" ];then
-            cp -rf /boot/install/* /home/diya
-            rm -rf /boot/install
+        if [ -e "/boot/wpa_supplicant.conf" ];then
+            install -m 0644 /boot/wpa_supplicant.conf /var/etc/network
+            rm /boot/wpa_supplicant.conf
             reboot
         fi
         # display information

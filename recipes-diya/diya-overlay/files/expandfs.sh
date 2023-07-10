@@ -1,6 +1,6 @@
 #! /bin/sh
 line=$(
-sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/mmcblk0 | grep /dev/mmcblk0p3
+sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/mmcblk0 | grep /dev/mmcblk0p4
 p
 q
 EOF
@@ -18,11 +18,11 @@ fi
 
 echo "Expanding the partition"
 sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/mmcblk0
-d
-3
+d # delete partition
+4 # number 4
 n # new partition
 p # primary partition
-3 # partition number 3
+4 # partition number 4
 $start_sector
   # default - end of disk 
 p # print the in-memory partition table

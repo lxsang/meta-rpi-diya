@@ -1,2 +1,4 @@
-l root root 0644 /etc/network/interfaces /home/diya/etc/network/interfaces
-l root root 0644 /etc/dropbear /home/diya/etc/dropbear
+d root root 0755 /var/etc/network none
+d root root 0755 /var/etc/dropbear none
+l root root 0644 /etc/network/interfaces /var/etc/network/interfaces
+l root root 0644 /etc/dropbear /var/etc/dropbear
