@@ -17,14 +17,14 @@ GROUPADD_PACKAGES = "${PN}"
 USERADD_PARAM:${PN} = "-u 1000 -d /home/diya -r -s /bin/sh diya"
 
 INITSCRIPT_NAME = "confd"
-INITSCRIPT_PARAMS = "start 80 S ."
+INITSCRIPT_PARAMS = "start 0 S ."
 
 do_install() {
     install -d ${D}/${sysconfdir}/init.d/
     install -m 0755 ${WORKDIR}/confd ${D}/${sysconfdir}/init.d/confd
     install -d ${D}/usr/bin/
     install -d ${D}/etc/default/volatiles
-	install -m 0644 ${WORKDIR}/80_diya ${D}${sysconfdir}/default/volatiles
+	# install -m 0644 ${WORKDIR}/80_diya ${D}${sysconfdir}/default/volatiles
     install -m 0755 ${WORKDIR}/expandfs.sh ${D}/usr/bin/expandfs.sh
     install -m 0755 ${WORKDIR}/fs_resize ${DEPLOY_DIR_IMAGE}/
 
