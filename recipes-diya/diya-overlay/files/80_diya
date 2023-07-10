@@ -1,3 +1,3 @@
 d root root 0755 /var/etc/dropbear none
-l root root 0644 /etc/network/interfaces /var/etc/network/interfaces
+l root root 0644 /etc/network/interfaces /var/etc/network/itf_diya
 l root root 0644 /etc/dropbear /var/etc/dropbear
