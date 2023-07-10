@@ -1,5 +1,5 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
-SRC_URI += "file://interfaces"
+SRC_URI += "file://interfaces-custom"
 
 do_install:append () {
     rm ${D}/etc/network/interfaces
