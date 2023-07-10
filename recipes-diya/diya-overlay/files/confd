@@ -19,8 +19,10 @@ case "$1" in
             echo "Trying to format the home partition"
             umount /dev/mmcblk0p3
             yes | mkfs.ext4 /dev/mmcblk0p3
+            mount /dev/mmcblk0p3 /home
+            mkdir -p /home/diya
+            chown -R diya:diya /home/diya
             rm /boot/home_partition_should_be_formated
-            reboot
         fi
         if [ -e "/boot/wpa_supplicant.conf" ];then
             install -m 0644 /boot/wpa_supplicant.conf /var/etc/network
