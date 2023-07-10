@@ -17,7 +17,7 @@ GROUPADD_PACKAGES = "${PN}"
 USERADD_PARAM:${PN} = "-u 1000 -d /home/diya -r -s /bin/sh diya"
 
 INITSCRIPT_NAME = "confd"
-INITSCRIPT_PARAMS = "start 4 S ."
+INITSCRIPT_PARAMS = "start 30 S ."
 
 do_install() {
     install -d ${D}/${sysconfdir}/init.d/
