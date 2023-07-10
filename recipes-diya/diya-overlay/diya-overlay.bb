@@ -27,4 +27,8 @@ do_install() {
 	install -m 0644 ${WORKDIR}/80_diya ${D}${sysconfdir}/default/volatiles
     install -m 0755 ${WORKDIR}/expandfs.sh ${D}/usr/bin/expandfs.sh
     install -m 0755 ${WORKDIR}/fs_resize ${DEPLOY_DIR_IMAGE}/
+
+    install -d ${D}/var/etc
+    install -d ${D}/var/etc/upper
+    install -d ${D}/var/etc/work
 }
