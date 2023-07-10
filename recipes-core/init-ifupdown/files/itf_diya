@@ -10,7 +10,7 @@ iface wlan0 inet dhcp
 # wireless_mode managed
 # wireless_essid any
 # wpa-driver wext
-wpa-conf /var/etc/network/wpa_supplicant.conf
+wpa-conf /etc/network/wpa_supplicant.conf
 
 # Ethernet/RNDIS gadget (g_ether)
 # ... or on host side, usbnet and random hwaddr

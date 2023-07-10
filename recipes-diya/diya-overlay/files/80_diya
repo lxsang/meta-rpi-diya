@@ -1,5 +1,4 @@
-# d root root 0755 /var/etc/dropbear none
-l root root 0644 /etc/network/interfaces /var/etc/network/itf_diya
+d root root 0755 /var/etc/upper none
+d root root 0755 /var/etc/work none
+
 # l root root 0644 /etc/dropbear /var/etc/dropbear
-# l root root 0644 /etc/passwd /var/etc/passwd
-# l root root 0644 /etc/group /var/etc/group
