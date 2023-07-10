@@ -46,9 +46,4 @@ IMAGE_INSTALL:append = "libcurl \
                         evtest \
                         raspi-gpio \
                         " 
-patch_rootfs () {
-    cp -a ${IMAGE_ROOTFS}/etc ${IMAGE_ROOTFS}/var/
-}
-
-IMAGE_POSTPROCESS_COMMAND += " patch_rootfs "
 
