@@ -46,7 +46,13 @@ IMAGE_INSTALL:append = "libcurl \
                         evtest \
                         raspi-gpio \
                         " 
+patch_rootfs () {
+    install -d ${IMAGE_ROOTFS}/var/etc
+    install -m 0644 ${IMAGE_ROOTFS}/etc/passwd ${IMAGE_ROOTFS}/var/etc/
+    install -m 0644 ${IMAGE_ROOTFS}/etc/group ${IMAGE_ROOTFS}/var/etc/
+    rm ${IMAGE_ROOTFS}/etc/passwd
+    rm ${IMAGE_ROOTFS}/etc/group
+}
 
-# 
-# usermod -a -G audio diya;
-# usermod -a -G avahi diya
+IMAGE_POSTPROCESS_COMMAND += " patch_rootfs "
+
