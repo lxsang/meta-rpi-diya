@@ -47,13 +47,7 @@ IMAGE_INSTALL:append = "libcurl \
                         raspi-gpio \
                         " 
 patch_rootfs () {
-    install -d ${IMAGE_ROOTFS}/var/etc
-    install -m 0644 ${IMAGE_ROOTFS}/etc/passwd ${IMAGE_ROOTFS}/var/etc/
-    install -m 0644 ${IMAGE_ROOTFS}/etc/group ${IMAGE_ROOTFS}/var/etc/
-    rm ${IMAGE_ROOTFS}/etc/passwd
-    rm ${IMAGE_ROOTFS}/etc/group
-    ln -sf /var/etc/passwd ${IMAGE_ROOTFS}/etc/passwd
-    ln -sf /var/etc/group ${IMAGE_ROOTFS}/etc/group
+    cp -a ${IMAGE_ROOTFS}/etc ${IMAGE_ROOTFS}/var/
 }
 
 IMAGE_POSTPROCESS_COMMAND += " patch_rootfs "
