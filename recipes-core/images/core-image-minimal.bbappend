@@ -52,6 +52,8 @@ patch_rootfs () {
     install -m 0644 ${IMAGE_ROOTFS}/etc/group ${IMAGE_ROOTFS}/var/etc/
     rm ${IMAGE_ROOTFS}/etc/passwd
     rm ${IMAGE_ROOTFS}/etc/group
+    ln -sf ${IMAGE_ROOTFS}/etc/passwd /var/etc/passwd
+    ln -sf ${IMAGE_ROOTFS}/etc/group /var/etc/group
 }
 
 IMAGE_POSTPROCESS_COMMAND += " patch_rootfs "
