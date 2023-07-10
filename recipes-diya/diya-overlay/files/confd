@@ -18,8 +18,8 @@ case "$1" in
         if [ -f "/boot/home_partition_should_be_formated" ]; then
             echo "Trying to format the home partition"
             umount /dev/mmcblk0p3
-            yes | mkfs.ext4 /dev/mmcblk0p3
-            mount /dev/mmcblk0p3 /home
+            yes | mkfs.ext4 /dev/mmcblk0p4
+            mount /dev/mmcblk0p4 /home
             mkdir -p /home/diya
             chown -R diya:diya /home/diya
             rm /boot/home_partition_should_be_formated
