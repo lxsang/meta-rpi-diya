@@ -29,3 +29,11 @@ do_install() {
     install -m 0755 ${WORKDIR}/fs_resize ${DEPLOY_DIR_IMAGE}/
 }
 
+pkg_postinst:${PN}-patch () {
+#!/bin/sh
+install -d ${D}/var/etc
+install -m 0644 ${D}/etc/passwd ${D}/var/etc/
+install -m 0644 ${D}/etc/group ${D}/var/etc/
+rm ${D}/etc/passwd
+rm ${D}/etc/group
+}
