@@ -21,6 +21,7 @@ INITSCRIPT_PARAMS = "start 30 S ."
 
 do_install() {
     install -d ${D}/${sysconfdir}/init.d/
+    install -d ${DEPLOY_DIR_IMAGE}
     install -m 0755 ${WORKDIR}/confd ${D}/${sysconfdir}/init.d/confd
     install -d ${D}/usr/bin/
     install -d ${D}/etc/default/volatiles
