@@ -44,5 +44,7 @@ IMAGE_INSTALL:append = "libcurl \
                         wpa-supplicant \
                         evtest \
                         raspi-gpio \
+                        qt-base \
+                        qt5-opengles2-test \
                         " 
 
