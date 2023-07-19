@@ -25,7 +25,6 @@ IMAGE_INSTALL:append = "libcurl \
                         udev \
                         glew \
                         freetype \
-                        freeglut \
                         mesa \
                         sudo \
                         libsdl2 \
