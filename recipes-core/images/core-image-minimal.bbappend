@@ -31,7 +31,6 @@ IMAGE_INSTALL:append = "libcurl \
                         libsdl2-image \
                         libsdl2-mixer \
                         libsdl2-net \
-                        example \
                         htop \
                         waveshare-2.8-lcd \
                         realtekfw \
