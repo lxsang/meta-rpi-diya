@@ -120,7 +120,7 @@ int main(int ArgCount, char **Args)
     printf("Vertex Array ID %d\n", VertexArrayID);
     // Create and compile our GLSL program from the shaders
     GLuint programID = load_shader();
-    GLfloat tmp_buffer[9]; 
+    // GLfloat tmp_buffer[9]; 
     static const GLfloat g_vertex_buffer_data[] = {
         -1.0f,
         -1.0f,
@@ -138,9 +138,10 @@ int main(int ArgCount, char **Args)
     glGenBuffers(1, &vertexbuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
-    printf("Buffer ID %d of size: %d\n", vertexbuffer, sizeof(tmp_buffer));
+    // printf("Buffer ID %d of size: %d\n", vertexbuffer, sizeof(tmp_buffer));
     // read back buffer data
-    memset(tmp_buffer, 0, sizeof(tmp_buffer));
+    // memset(tmp_buffer, 0, sizeof(tmp_buffer));
+    /*
     glGetBufferSubData(GL_ARRAY_BUFFER, 0,sizeof(tmp_buffer), tmp_buffer );
     printf("Read back buffer data: \n");
 
@@ -148,6 +149,7 @@ int main(int ArgCount, char **Args)
     {
         printf("%d: %.2f\n", i, tmp_buffer[i]);
     }
+    */
     glGetIntegerv(GL_ARRAY_BUFFER_BINDING, &currid);
     printf("current id: %d\n",currid);
     while (Running)
