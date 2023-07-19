@@ -12,17 +12,13 @@ TARGET_CC_ARCH += "${LDFLAGS}"
 
 do_compile() {
     ${CXX} ${WORKDIR}/sdl_test.cpp `pkg-config --cflags --libs sdl2` -o ${WORKDIR}/sdl_test
-    ${CC} ${WORKDIR}/sdlgl.c `pkg-config --cflags --libs sdl2` -lGLESv2 -o ${WORKDIR}/sdlgl
+    # ${CC} ${WORKDIR}/sdlgl.c `pkg-config --cflags --libs sdl2` -lGLESv2 -o ${WORKDIR}/sdlgl
     ${CC} ${WORKDIR}/sdlglshader.c `pkg-config --cflags --libs sdl2` -lGLESv2 -o ${WORKDIR}/sdlglshader
 }
 
 do_install() {
     install -d ${D}/usr/bin
     install  -m 0755 ${WORKDIR}/sdl_test ${D}/usr/bin
-    install  -m 0755 ${WORKDIR}/sdlgl ${D}/usr/bin
+    # install  -m 0755 ${WORKDIR}/sdlgl ${D}/usr/bin
     install  -m 0755 ${WORKDIR}/sdlglshader ${D}/usr/bin
-    # for manual copy test applications on target from tmp dir
-    install  -m 0755 ${WORKDIR}/sdl_test /tmp
-    install  -m 0755 ${WORKDIR}/sdlgl /tmp
-    install  -m 0755 ${WORKDIR}/sdlglshader /tmp
 }
