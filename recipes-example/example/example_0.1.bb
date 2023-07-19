@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 inherit pkgconfig
 
-DEPENDS += "libsdl2"
+DEPENDS += " libsdl2 mesa virtual/libgles2 virtual/libgl "
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 SRC_URI = "file://sdl_test.cpp file://sdlgl.c file://sdlglshader.c"
 TARGET_CC_ARCH += "${LDFLAGS}"
