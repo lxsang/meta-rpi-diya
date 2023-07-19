@@ -12,8 +12,8 @@ TARGET_CC_ARCH += "${LDFLAGS}"
 
 do_compile() {
     ${CXX} ${WORKDIR}/sdl_test.cpp `pkg-config --cflags --libs sdl2` -o ${WORKDIR}/sdl_test
-    ${CC} ${WORKDIR}/sdlgl.c `pkg-config --cflags --libs sdl2` -lGL -o ${WORKDIR}/sdlgl
-    ${CC} ${WORKDIR}/sdlglshader.c `pkg-config --cflags --libs sdl2` -lGL -o ${WORKDIR}/sdlglshader
+    ${CC} ${WORKDIR}/sdlgl.c `pkg-config --cflags --libs sdl2` -lGLESv2 -o ${WORKDIR}/sdlgl
+    ${CC} ${WORKDIR}/sdlglshader.c `pkg-config --cflags --libs sdl2` -lGLESv2 -o ${WORKDIR}/sdlglshader
 }
 
 do_install() {

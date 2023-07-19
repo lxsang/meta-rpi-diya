@@ -20,7 +20,6 @@ IMAGE_INSTALL:append = "libcurl \
                         libgles2 \
                         libegl-mesa \
                         libgl-mesa \
-                        mesa-gl \
                         libglapi \
                         libudev \
                         udev \
