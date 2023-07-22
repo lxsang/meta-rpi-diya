@@ -46,6 +46,7 @@ IMAGE_INSTALL:append = "libcurl \
                         qtdeclarative \
                         qtquickcontrols2 \
                         qtquickcontrols \
+                        qtvirtualkeyboard \
                         qtgraphicaleffects \
                         qt5-opengles2-test \
                         " 
