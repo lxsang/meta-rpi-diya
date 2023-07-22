@@ -43,6 +43,7 @@ IMAGE_INSTALL:append = "libcurl \
                         evtest \
                         raspi-gpio \
                         qtbase \
+                        qtquickcontrols2 \
                         qt5-opengles2-test \
                         " 
 
