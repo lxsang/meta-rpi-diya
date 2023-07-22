@@ -45,6 +45,7 @@ IMAGE_INSTALL:append = "libcurl \
                         qtbase \
                         qtquickcontrols2 \
                         qtquickcontrols \
+                        qtgraphicaleffects \
                         qt5-opengles2-test \
                         " 
 
