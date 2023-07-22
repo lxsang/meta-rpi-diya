@@ -43,6 +43,7 @@ IMAGE_INSTALL:append = "libcurl \
                         evtest \
                         raspi-gpio \
                         qtbase \
+                        qtdeclarative \
                         qtquickcontrols2 \
                         qtquickcontrols \
                         qtgraphicaleffects \
