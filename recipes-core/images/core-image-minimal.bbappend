@@ -42,6 +42,8 @@ IMAGE_INSTALL:append = "libcurl \
                         wpa-supplicant \
                         evtest \
                         raspi-gpio \
+                        rsync \
+                        coreutils \
                         qtbase \
                         qtdeclarative \
                         qtquickcontrols2 \
