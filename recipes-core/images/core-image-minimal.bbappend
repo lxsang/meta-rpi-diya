@@ -44,6 +44,7 @@ IMAGE_INSTALL:append = "libcurl \
                         raspi-gpio \
                         qtbase \
                         qtquickcontrols2 \
+                        qtquickcontrols \
                         qt5-opengles2-test \
                         " 
 
