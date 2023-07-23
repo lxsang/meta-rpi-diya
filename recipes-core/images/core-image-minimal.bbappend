@@ -44,12 +44,14 @@ IMAGE_INSTALL:append = "libcurl \
                         raspi-gpio \
                         rsync \
                         coreutils \
+                        wayland weston \
                         qtbase \
                         qtdeclarative \
                         qtquickcontrols2 \
                         qtquickcontrols \
                         qtvirtualkeyboard \
                         qtgraphicaleffects \
+                        qtwayland \
                         qt5-opengles2-test \
                         gdbserver \
                         " 
