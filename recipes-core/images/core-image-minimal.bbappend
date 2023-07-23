@@ -51,5 +51,6 @@ IMAGE_INSTALL:append = "libcurl \
                         qtvirtualkeyboard \
                         qtgraphicaleffects \
                         qt5-opengles2-test \
+                        gdbserver \
                         " 
 
