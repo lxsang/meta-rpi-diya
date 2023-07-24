@@ -11,6 +11,9 @@ EXTRA_USERS_PARAMS = "usermod -p 2Pe/4xyFxsokE diya; \
                         usermod -a -G dialout diya; \
                         usermod -a -G audio diya; \
                         usermod -a -G avahi diya; \
+                        usermod -a -G render diya; \
+                        usermod -a -G wayland diya; \
+                        usermod -a -G weston diya; \
                         usermod -a -G sudo diya \
                         "
 IMAGE_BOOT_FILES:append = "fs_resize"
