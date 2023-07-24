@@ -48,6 +48,7 @@ IMAGE_INSTALL:append = "libcurl \
                         rsync \
                         coreutils \
                         wayland weston \
+                        hicolor-icon-theme \
                         qtbase \
                         qtdeclarative \
                         qtquickcontrols2 \
