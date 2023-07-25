@@ -28,13 +28,9 @@ IMAGE_INSTALL:append = "libcurl \
                         udev \
                         glew \
                         freetype \
+                        gdk-pixbuf \
                         mesa \
                         sudo \
-                        libsdl2 \
-                        libsdl2-ttf \
-                        libsdl2-image \
-                        libsdl2-mixer \
-                        libsdl2-net \
                         htop \
                         waveshare-2.8-lcd \
                         realtekfw \
@@ -48,14 +44,12 @@ IMAGE_INSTALL:append = "libcurl \
                         rsync \
                         coreutils \
                         wayland weston wayland-protocols hwdata \
-                        hicolor-icon-theme \
                         qtbase \
                         qtdeclarative \
                         qtquickcontrols2 \
                         qtquickcontrols \
                         qtgraphicaleffects \
                         qtwayland \
-                        qt5-opengles2-test \
                         gdbserver \
                         " 
 

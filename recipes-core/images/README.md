@@ -15,6 +15,12 @@ libsdl2-mixer \
 #tslib-tests 
 #tslib-calibrate 
 #tslib-uinput
+
+libsdl2 \
+                        libsdl2-ttf \
+                        libsdl2-image \
+                        libsdl2-mixer \
+                        libsdl2-net \
 # v4l-utils
 evtest
 
