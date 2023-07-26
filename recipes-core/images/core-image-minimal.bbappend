@@ -51,7 +51,8 @@ IMAGE_INSTALL:append = "libcurl \
                         raspi-gpio \
                         rsync \
                         coreutils \
-                        wayland wayland-protocols hwdata \
+                        wayland wayland-protocols \
+                        labwc foot \
                         qtbase \
                         qtdeclarative \
                         qtquickcontrols2 \
