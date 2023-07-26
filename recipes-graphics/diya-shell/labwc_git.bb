@@ -12,6 +12,22 @@ SRCREV = "${AUTOREV}"
 # SRCREV = "27d2d9f0c76b5805ff43578272e809aeb665a498"
 SRC_URI = "git://github.com/labwc/labwc.git;protocol=https;branch=master;"
 
+REQUIRED_DISTRO_FEATURES = "wayland"
+
+DEPENDS += " \
+	libxml2 \
+	glib-2.0 \
+	cairo \
+	pango \
+	wayland \
+	wayland-native \
+	wayland-protocols \
+	libdrm \
+	libxkbcommon \
+	libinput \
+	wl-roots \
+"
+
 inherit meson
 
 do_install:append () {
