@@ -22,8 +22,15 @@ IMAGE_INSTALL:append = "libcurl \
                         libegl-mesa \
                         libglapi \
                         libudev \
-                        cairo \
+                        libinput \
                         pango \
+                        libxkbcommon \
+                        xkeyboard-config \
+                        seatd \
+                        gdk-pixbuf \
+                        pixman \
+                        cairo \
+                        glib-2.0 \
                         udev \
                         glew \
                         freetype \
