@@ -27,6 +27,7 @@ DEPENDS += " \
 	libinput \
 	wl-roots \
 "
+S = "${WORKDIR}/git"
 
 inherit meson
 
