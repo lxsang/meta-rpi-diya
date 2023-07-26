@@ -34,6 +34,7 @@ IMAGE_INSTALL:append = "libcurl \
                         udev \
                         glew \
                         freetype \
+                        fontconfig \
                         gdk-pixbuf \
                         mesa \
                         sudo \
