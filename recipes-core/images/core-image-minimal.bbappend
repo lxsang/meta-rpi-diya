@@ -35,7 +35,6 @@ IMAGE_INSTALL:append = "libcurl \
                         glew \
                         freetype \
                         fontconfig \
-                        liberation-fonts \
                         gdk-pixbuf \
                         mesa \
                         sudo \
@@ -52,7 +51,7 @@ IMAGE_INSTALL:append = "libcurl \
                         rsync \
                         coreutils \
                         wayland wayland-protocols \
-                        labwc foot \
+                        labwc foot swaybg swayidle swaylock wlr-randr yambar\
                         qtbase \
                         qtdeclarative \
                         qtquickcontrols2 \
