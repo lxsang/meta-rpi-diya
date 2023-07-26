@@ -1,7 +1,7 @@
 # Example autostart file
 
 # Set background color
-swaybg -i /etc/labwc/wpp.png >/dev/null 2>&1 &
+swaybg -i /etc/labwc/wpp.jpg >/dev/null 2>&1 &
 
 wlr-randr --output DPI-1 --transform 90
 
