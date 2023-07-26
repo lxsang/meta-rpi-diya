@@ -1,5 +1,4 @@
 inherit extrausers
-inherit populate_sdk_qt5
 
 KERNEL_DEVICETREE:append = "${@bb.utils.contains('RPI_USE_wS_28_DPI_LCD', '1', ' overlays/dpi24.dtbo overlays/vc4-kms-dpi-generic.dtbo overlays/ads1115-i2c-gpio.dtbo overlays/ads1115-i2c-gpio.dtbo overlays/vc4-kms-DPI-28inch.dtbo overlays/waveshare-28dpi-3b-4b.dtbo overlays/waveshare-28dpi-3b.dtbo overlays/waveshare-28dpi-4b.dtbo ', ' ', d)}"
 
@@ -27,7 +26,6 @@ IMAGE_INSTALL:append = "libcurl \
                         libxkbcommon \
                         xkeyboard-config \
                         seatd \
-                        gdk-pixbuf \
                         pixman \
                         cairo \
                         glib-2.0 \
@@ -52,12 +50,6 @@ IMAGE_INSTALL:append = "libcurl \
                         coreutils \
                         wayland wayland-protocols \
                         labwc foot swaybg swayidle swaylock wlr-randr yambar\
-                        qtbase \
-                        qtdeclarative \
-                        qtquickcontrols2 \
-                        qtquickcontrols \
-                        qtgraphicaleffects \
-                        qtwayland \
                         gdbserver \
                         " 
 
