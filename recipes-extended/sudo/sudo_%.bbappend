@@ -4,6 +4,6 @@ do_install:append() {
     # allow sudo group to power off/reboot system without password
     cat << EOF >> ${D}/${sysconfdir}/sudoers
 ## sudo user group is allowed to execute halt and reboot 
-%sudo ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff
+%sudo ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff, /usr/bin/swaylock
 EOF
 }
