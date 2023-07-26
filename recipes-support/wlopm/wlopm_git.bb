@@ -14,7 +14,7 @@ SRC_URI[sha256sum] = "0e5335c501ac1803932eca49bcb9344578d11911768605f31b29c02c16
 S="${WORKDIR}/git"
 
 do_compile () {
-    oe_runmake -C make/linux
+    oe_runmake
 }
 
 do_install() {
