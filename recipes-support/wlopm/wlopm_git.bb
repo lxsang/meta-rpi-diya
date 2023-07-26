@@ -9,7 +9,7 @@ DEPENDS = "wayland wayland-protocols"
 SRCREV = "${AUTOREV}"
 
 SRC_URI = "https://git.iohub.dev/dany/wlopm.git;branch=master;"
-
+SRC_URI[sha256sum] = "0e5335c501ac1803932eca49bcb9344578d11911768605f31b29c02c16a142f1"
 
 S="${WORKDIR}/git"
 
