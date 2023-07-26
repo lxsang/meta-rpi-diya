@@ -34,6 +34,7 @@ IMAGE_INSTALL:append = "libcurl \
                         freetype \
                         fontconfig \
                         gdk-pixbuf \
+                        gtk-layer-shell \
                         mesa \
                         sudo \
                         htop \
