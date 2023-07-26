@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171d
 
 #FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-DEPENDS = "wayland wayland-protocols fontconfig seatd liberation-fonts libxkbcommon libdrm libudev pixman mesa cairo"
+DEPENDS = "wayland wayland-protocols fontconfig seatd liberation-fonts libxkbcommon libdrm eudev pixman mesa cairo"
 
 
 SRCREV = "${AUTOREV}"
