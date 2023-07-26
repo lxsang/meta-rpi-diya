@@ -1,8 +1,8 @@
 PACKAGECONFIG:remove = " man-pages xwayland "
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI += " file://init \
-             file://autostart \
+SRC_URI += " file://autostart \ 
+             file://init \
              file://environment \
              file://menu.xml \
              file://rc.xml \
