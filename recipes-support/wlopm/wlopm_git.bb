@@ -4,12 +4,11 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-3.0-only;md5=c79ff39f19dfec6d293b95dea7b07891"
 
 
-DEPENDS = "wayland wayland-protocols"
+DEPENDS = "wayland  wayland-native wayland-protocols"
 
 SRCREV = "${AUTOREV}"
 
-SRC_URI = "https://git.iohub.dev/dany/wlopm.git;branch=master;"
-SRC_URI[sha256sum] = "0e5335c501ac1803932eca49bcb9344578d11911768605f31b29c02c16a142f1"
+SRC_URI = "git://git.iohub.dev/dany/wlopm.git;protocol=https;branch=master"
 
 S="${WORKDIR}/git"
 
@@ -20,3 +19,5 @@ do_compile () {
 do_install() {
      oe_runmake install DESTDIR='${D}'
 }
+
+FILES:${PN} += "/usr/local/*"
