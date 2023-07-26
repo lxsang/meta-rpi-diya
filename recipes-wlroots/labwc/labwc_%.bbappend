@@ -1,5 +1,5 @@
 PACKAGECONFIG:remove = " man-pages xwayland "
-FILESEXTRAPATHS:prepend = "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI += " file://init \
              file://autostart \
@@ -17,7 +17,7 @@ do_install:append () {
     install -m 0755 ${WORKDIR}/environment ${D}/${sysconfdir}/labwc/
     install -m 0755 ${WORKDIR}/menu.xml ${D}/${sysconfdir}/labwc/
     install -m 0755 ${WORKDIR}/rc.xml ${D}/${sysconfdir}/labwc/
-    install -m 0755 ${WORKDIR}/wpp.xml ${D}/${sysconfdir}/labwc/
+    install -m 0755 ${WORKDIR}/wpp.jpg ${D}/${sysconfdir}/labwc/
 }
 
 inherit update-rc.d
