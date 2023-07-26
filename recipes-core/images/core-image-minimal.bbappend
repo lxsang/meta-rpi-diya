@@ -22,6 +22,8 @@ IMAGE_INSTALL:append = "libcurl \
                         libegl-mesa \
                         libglapi \
                         libudev \
+                        cairo \
+                        pango \
                         udev \
                         glew \
                         freetype \
