@@ -5,12 +5,12 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171d
 
 #FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-DEPENDS = "wayland wayland-protocols fontconfig seatd liberation-fonts libxkbcommon libdrm libudev pixman libgles2 cairo"
+DEPENDS = "wayland wayland-protocols fontconfig seatd liberation-fonts libxkbcommon libdrm libudev pixman mesa cairo"
 
 
 SRCREV = "${AUTOREV}"
 # SRCREV = "27d2d9f0c76b5805ff43578272e809aeb665a498"
-SRC_URI = "git://github.com/labwc/labwc.git;branch=master;"
+SRC_URI = "git://github.com/labwc/labwc.git;protocol=https;branch=master;"
 
 inherit meson
 
