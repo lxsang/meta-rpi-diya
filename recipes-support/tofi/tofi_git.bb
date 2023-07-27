@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-DEPENDS = "wayland freetype wayland-native wayland-protocols harfbuzz pango libxkbcommon"
+DEPENDS = "wayland freetype wayland-native wayland-protocols-native wayland-protocols harfbuzz pango libxkbcommon"
 
 SRCREV = "${AUTOREV}"
 
