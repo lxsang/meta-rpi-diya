@@ -50,7 +50,7 @@ IMAGE_INSTALL:append = "libcurl \
                         rsync \
                         coreutils \
                         wayland wayland-protocols \
-                        labwc foot swaybg swayidle swaylock wlr-randr wlopm sfwbar \
+                        labwc foot swaybg swayidle swaylock wlr-randr wlopm sfwbar tofi \
                         gdbserver \
                         " 
 
