@@ -5,6 +5,7 @@ do_install:append () {
 # QT related setting
 export GDK_BACKEND=wayland
 export XDG_RUNTIME_DIR=/home/$USER/.xdg
+export XDG_CONFIG_HOME=/etc/xdg/
 export PATH=$PATH:/home/$USER/bin
 if [ ! -e "$XDG_RUNTIME_DIR" ]; then
     mkdir -p "$XDG_RUNTIME_DIR"

@@ -33,6 +33,7 @@ IMAGE_INSTALL:append = "libcurl \
                         glew \
                         freetype \
                         fontconfig \
+                        librsvg \
                         gdk-pixbuf \
                         gtk-layer-shell \
                         mesa \
