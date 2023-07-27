@@ -35,7 +35,7 @@ case "$1" in
   ;;
 
   stop)
-        echo "Stopping Weston"
+        echo "Stopping labwc"
         killproc labwc
   ;;
 

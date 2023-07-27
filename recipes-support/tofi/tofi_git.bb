@@ -10,7 +10,7 @@ DEPENDS = "wayland freetype wayland-native wayland-protocols-native wayland-prot
 SRCREV = "${AUTOREV}"
 
 SRC_URI = "git://github.com/philj56/tofi.git;protocol=https;branch=master"
-SRC_URI += " file://icon.svg file://config "
+SRC_URI += " file://config "
 
 S="${WORKDIR}/git"
 
@@ -19,13 +19,6 @@ inherit meson pkgconfig
 EXTRA_OEMESON += "--buildtype release"
 
 do_install:append () {
-    install -d ${D}/usr/share
-    install -d ${D}/usr/share/icons
-    install -d ${D}/usr/share/icons/hicolor
-    install -d ${D}/usr/share/icons/hicolor/scalable
-    install -d ${D}/usr/share/icons/hicolor/scalable/apps
-    install -m 0755 ${WORKDIR}/icon.svg ${D}/usr/share/icons/hicolor/scalable/apps/tofi.svg
-
     # replace the default config
     install -m 0755 ${WORKDIR}/config ${D}/${sysconfdir}/xdg/tofi/
 }

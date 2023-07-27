@@ -10,7 +10,7 @@ DEPENDS = "gtk+3 gtk-layer-shell json-c wayland-native"
 SRCREV = "${AUTOREV}"
 
 SRC_URI = "git://github.com/LBCrion/sfwbar.git;protocol=https;branch=main"
-SRC_URI += " file://sfwbar.config file://icon.svg "
+SRC_URI += " file://sfwbar.config "
 
 S="${WORKDIR}/git"
 
@@ -21,13 +21,6 @@ EXTRA_OEMESON += "--buildtype release"
 do_install:append () {
     install -d ${D}/${sysconfdir}/sfwbar/
     install -m 0755 ${WORKDIR}/sfwbar.config ${D}/${sysconfdir}/sfwbar/
-
-    install -d ${D}/usr/share
-    install -d ${D}/usr/share/icons
-    install -d ${D}/usr/share/icons/hicolor
-    install -d ${D}/usr/share/icons/hicolor/scalable
-    install -d ${D}/usr/share/icons/hicolor/scalable/actions/
-    install -m 0755 ${WORKDIR}/icon.svg ${D}/usr/share/icons/hicolor/scalable/actions/show-desktop.svg
 }
 
 FILES:${PN} += "/usr/share/icons/*"
