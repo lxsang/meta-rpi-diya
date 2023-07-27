@@ -12,9 +12,9 @@
   </core>
 
   <theme>
-    <name></name>
-    <cornerRadius>8</cornerRadius>
-    <font name="sans" size="10" />
+    <name>Adwaita</name>
+    <cornerRadius>0</cornerRadius>
+    <font name="sans" size="12" />
   </theme>
 
   <keyboard>
