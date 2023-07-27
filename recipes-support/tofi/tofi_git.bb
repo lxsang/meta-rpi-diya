@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-DEPENDS = "wayland freetype wayland-native wayland-protocols"
+DEPENDS = "wayland freetype wayland-native wayland-protocols harfbuzz pango libxkbcommon"
 
 SRCREV = "${AUTOREV}"
 
@@ -30,4 +30,4 @@ do_install:append () {
     install -m 0755 ${WORKDIR}/config ${D}/${sysconfdir}/xdg/tofi/
 }
 
-# FILES:${PN} += "/usr/share/icons/*"
+FILES:${PN} += "/usr/share/*"
