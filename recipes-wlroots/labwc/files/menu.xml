@@ -3,44 +3,47 @@
 <openbox_menu>
 
     <menu id="client-menu">
-    <item label="Minimize">
-        <action name="Iconify" />
-    </item>
-    <item label="Maximize">
-        <action name="ToggleMaximize" />
-    </item>
-    <item label="Fullscreen">
-        <action name="ToggleFullscreen" />
-    </item>
-    <item label="AlwaysOnTop">
-        <action name="ToggleAlwaysOnTop" />
-    </item>
-    <item label="Close">
-        <action name="Close"/>
-    </item>
+        <item label="Minimize">
+            <action name="Iconify" />
+        </item>
+        <item label="Maximize">
+            <action name="ToggleMaximize" />
+        </item>
+        <item label="Fullscreen">
+            <action name="ToggleFullscreen" />
+        </item>
+        <item label="Always on top">
+            <action name="ToggleAlwaysOnTop" />
+        </item>
+        <item label="Close">
+            <action name="Close"/>
+        </item>
     </menu>
     <menu id="root-menu">
         <item label="Terminal">
             <action name="Execute" command="foot -t xterm-256color" />
         </item>
-    <item label="Reconfigure">
-        <action name="Reconfigure" />
-    </item>
-    <item label="Exit">
-        <action name="Exit" />
-    </item>
-    <item label="Poweroff">
-        <action name="Execute" command="sudo /sbin/halt" />
-    </item>
+        <item label="Reconfigure">
+            <action name="Reconfigure" />
+        </item>
+        <item label="Exit">
+            <action name="Exit" />
+        </item>
+        <item label="Reboot">
+            <action name="Execute" command="sudo /sbin/reboot" />
+        </item>
+        <item label="Power off">
+            <action name="Execute" command="sudo /sbin/halt" />
+        </item>
     </menu>
 
     <menu id="some-custom-menu">
-    <item label="Reconfigure">
-        <action name="Reconfigure" />
-    </item>
-    <item label="Exit">
-        <action name="Exit" />
-    </item>
+        <item label="Reconfigure">
+            <action name="Reconfigure" />
+        </item>
+        <item label="Exit">
+            <action name="Exit" />
+        </item>
     </menu>
 
 </openbox_menu>

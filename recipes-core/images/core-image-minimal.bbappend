@@ -33,7 +33,7 @@ IMAGE_INSTALL:append = "libcurl \
                         glew \
                         freetype \
                         fontconfig \
-                        librsvg librsvg-gtk rsvg \
+                        librsvg librsvg-gtk \
                         gdk-pixbuf \
                         gtk-layer-shell \
                         mesa \
@@ -51,7 +51,7 @@ IMAGE_INSTALL:append = "libcurl \
                         rsync \
                         coreutils \
                         wayland wayland-protocols \
-                        labwc foot swaybg swayidle swaylock wlr-randr wlopm sfwbar tofi \
+                        labwc foot swaybg swayidle swaylock wlr-randr wlopm sfwbar tofi wtype \
                         gdbserver \
                         " 
 

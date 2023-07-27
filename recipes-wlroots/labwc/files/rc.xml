@@ -19,6 +19,14 @@
 
   <keyboard>
     <default />
+    <keybind key="A-Tab">
+      <action name="NextWindow" />
+    </keybind>
+    <keybind key="A-Space">
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+      </action>
+    </keybind>
     <!-- Use a different terminal emulator -->
     <keybind key="W-Return">
       <action name="Execute" command="foot" />
@@ -42,4 +50,9 @@
     </context>
   </mouse>
 
+  <windowRules>
+    <windowRule identifier="*">
+      <action name="Maximize"/>
+    </windowRule>
+  </windowRules>
 </labwc_config>
