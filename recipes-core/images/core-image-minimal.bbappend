@@ -37,7 +37,7 @@ IMAGE_INSTALL:append = "libcurl \
                         gdk-pixbuf \
                         gtk-layer-shell \
                         gobject-introspection \
-                        geany \
+                        l3afpad \
                         mesa \
                         sudo \
                         htop \
