@@ -1,7 +1,7 @@
 # Example autostart file
 
 # Set background color
-swaybg -i /etc/labwc/wpp.jpg >/dev/null 2>&1 &
+swaybg -i /etc/xdg/labwc/wpp.jpg >/dev/null 2>&1 &
 
 wlr-randr --output DPI-1 --transform 90
 
@@ -31,7 +31,7 @@ wlr-randr --output DPI-1 --transform 90
 # https://git.sr.ht/~leon_plickat/wlopm
 swayidle -w timeout 60 'wlopm --off DPI-1' resume 'wlopm --on DPI-1' &
 
-SFWBAR_CNF="/etc/sfwbar/sfwbar.config"
+SFWBAR_CNF="/etc/xdg/sfwbar/sfwbar.config"
 if [ -e "$HOME/.config/sfwbar/sfwbar.config" ]; then
     SFWBAR_CNF="$HOME/.config/sfwbar/sfwbar.config"
 fi

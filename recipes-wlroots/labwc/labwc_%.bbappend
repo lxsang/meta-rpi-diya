@@ -9,15 +9,16 @@ SRC_URI += " file://autostart \
              file://wpp.jpg \
             "
 do_install:append () {
+    install -d ${D}/${sysconfdir}/xdg
     install -d ${D}/${sysconfdir}/init.d
-    install -d ${D}/${sysconfdir}/labwc
+    install -d ${D}/${sysconfdir}/xdg/labwc
     install -m 0755 ${WORKDIR}/init ${D}/${sysconfdir}/init.d/labwc
     
-    install -m 0755 ${WORKDIR}/wpp.jpg ${D}/${sysconfdir}/labwc/
-    install -m 0755 ${WORKDIR}/autostart ${D}/${sysconfdir}/labwc/
-    install -m 0755 ${WORKDIR}/environment ${D}/${sysconfdir}/labwc/
-    install -m 0755 ${WORKDIR}/menu.xml ${D}/${sysconfdir}/labwc/
-    install -m 0755 ${WORKDIR}/rc.xml ${D}/${sysconfdir}/labwc/
+    install -m 0755 ${WORKDIR}/wpp.jpg ${D}/${sysconfdir}/xdg/labwc/
+    install -m 0755 ${WORKDIR}/autostart ${D}/${sysconfdir}/xdg/labwc/
+    install -m 0755 ${WORKDIR}/environment ${D}/${sysconfdir}/xdg/labwc/
+    install -m 0755 ${WORKDIR}/menu.xml ${D}/${sysconfdir}/xdg/labwc/
+    install -m 0755 ${WORKDIR}/rc.xml ${D}/${sysconfdir}/xdg/labwc/
     
 }
 

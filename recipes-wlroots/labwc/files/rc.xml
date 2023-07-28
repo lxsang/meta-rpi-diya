@@ -41,7 +41,7 @@
     </keybind>
     <keybind key="W-Space">
       <action name="Execute">
-        <command>bash -c "bash -c \"`tofi-drun`\""</command>
+        <command>bash -c "bash -c \"`drun`\""</command>
       </action>
     </keybind>
     <!--

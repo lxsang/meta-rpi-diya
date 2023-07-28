@@ -19,8 +19,9 @@ inherit meson pkgconfig
 EXTRA_OEMESON += "--buildtype release"
 
 do_install:append () {
-    install -d ${D}/${sysconfdir}/sfwbar/
-    install -m 0755 ${WORKDIR}/sfwbar.config ${D}/${sysconfdir}/sfwbar/
+    install -d ${D}/${sysconfdir}/xdg/
+    install -d ${D}/${sysconfdir}/xdg/sfwbar/
+    install -m 0755 ${WORKDIR}/sfwbar.config ${D}/${sysconfdir}/xdg/sfwbar/
 }
 
 FILES:${PN} += "/usr/share/icons/*"

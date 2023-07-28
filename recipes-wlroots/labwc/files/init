@@ -8,7 +8,7 @@
 # Default-Stop:      0 1 6
 ### END INIT INFO
 LABWC_USER=diya
-LABWC_CONFDIR="/etc/labwc"
+LABWC_CONFDIR="/etc/xdg/labwc"
 if test -e "/home/$LABWC_USER/.config/labwc" ; then
     LABWC_CONFDIR="/home/$LABWC_USER/.config/labwc"
 fi
