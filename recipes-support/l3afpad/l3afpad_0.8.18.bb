@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-3.0-only;md5=c79ff39f19dfec
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-S="${WORKDIR}/l3afpad-0.8.18.1.11"
+S="${WORKDIR}"
 
 DEPENDS = "gtk+3 pango cairo harfbuzz gdk-pixbuf  intltool-native"
 
@@ -24,5 +24,7 @@ do_compile () {
 }
 
 do_install () {
-   make install
+   DESTDIR=${D} make install
 }
+
+FILES:${PN} += "/usr/local/*"
