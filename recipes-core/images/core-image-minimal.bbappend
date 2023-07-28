@@ -36,6 +36,7 @@ IMAGE_INSTALL:append = "libcurl \
                         librsvg librsvg-gtk \
                         gdk-pixbuf \
                         gtk-layer-shell \
+                        gobject-introspection \
                         mesa \
                         sudo \
                         htop \
