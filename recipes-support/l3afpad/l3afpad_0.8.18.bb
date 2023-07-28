@@ -13,7 +13,7 @@ inherit pkgconfig
 
 
 SRC_URI = "file://l3afpad-0.8.18.1.11.tar.gz"
-SRC_URI[sha256sum] = "7fc154f12733b00d31767b3f1255c3f12249065406e7cddafd9888fc83720fd9"
+SRC_URI[sha256sum] = "005457fa35a7e37024e403852a21a5c7362a0314a8de9b7fff73b1e7802d8959"
 
 do_configure () {
    ./configure --host=x86_64-unknown-linux --target=aarch64-poky-linux
