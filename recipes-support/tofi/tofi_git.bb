@@ -10,7 +10,7 @@ DEPENDS = "wayland freetype wayland-native wayland-protocols-native wayland-prot
 SRCREV = "${AUTOREV}"
 
 SRC_URI = "git://github.com/philj56/tofi.git;protocol=https;branch=master"
-SRC_URI += " file://config "
+SRC_URI += " file://config file://drun "
 
 S="${WORKDIR}/git"
 
@@ -20,6 +20,7 @@ EXTRA_OEMESON += "--buildtype release"
 
 do_install:append () {
     # replace the default config
+    install -m 0755 ${WORKDIR}/drun ${D}/usr/bin/
     install -m 0755 ${WORKDIR}/config ${D}/${sysconfdir}/xdg/tofi/
 }
 
