@@ -19,8 +19,16 @@
 
   <keyboard>
     <default />
-    <keybind key="A-Tab">
+    <keybind key="W-F">
+      <action name="ToggleFullscreen" />
+    </keybind>
+    <keybind key="W-L">
       <action name="NextWindow" />
+    </keybind>
+    <keybind key="W-M">
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+      </action>
     </keybind>
     <keybind key="A-Space">
       <action name="ShowMenu">
@@ -30,6 +38,11 @@
     <!-- Use a different terminal emulator -->
     <keybind key="W-Return">
       <action name="Execute" command="foot" />
+    </keybind>
+    <keybind key="W-Space">
+      <action name="Execute">
+        <command>bash -c "bash -c \"`tofi-drun`\""</command>
+      </action>
     </keybind>
     <!--
       Remove a previously defined keybind
