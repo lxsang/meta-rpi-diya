@@ -12,7 +12,7 @@ EXTRA_USERS_PARAMS = "usermod -p 2Pe/4xyFxsokE diya; \
                         usermod -a -G avahi diya; \
                         usermod -a -G sudo diya \
                         "
-IMAGE_BOOT_FILES:append = "fs_resize recovery-initramfs-${MACHINE}.bin "
+IMAGE_BOOT_FILES:append = "fs_resize Image-initramfs-${MACHINE}.bin "
 
 IMAGE_INSTALL:append = "libcurl \
                         libdrm \
