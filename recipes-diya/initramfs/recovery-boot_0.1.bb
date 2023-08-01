@@ -8,6 +8,8 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 PR = "r4"
 
+inherit useradd
+
 inherit allarch
 
 SRC_URI = "file://init \
@@ -16,6 +18,11 @@ SRC_URI = "file://init \
           "
 
 S = "${WORKDIR}"
+
+USERADD_PACKAGES = "${PN}"
+GROUPADD_PACKAGES = "${PN}"
+
+USERADD_PARAM:${PN} = "-u 0 -d /root -r -s /bin/sh root"
 
 do_install() {
     install -d ${D}/init.d
