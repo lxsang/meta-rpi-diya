@@ -1,7 +1,7 @@
 
 DESCRIPTION = "Recovery initramfs image."
 
-INITRAMFS_SCRIPTS ?= "\
+INITRAMFS_SCRIPTS = "\
                       initramfs-framework-base \
                       initramfs-module-udev \
                      "
