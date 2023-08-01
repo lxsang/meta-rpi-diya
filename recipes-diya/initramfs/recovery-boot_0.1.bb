@@ -38,9 +38,6 @@ do_install() {
     # debug
     install -m 0755 ${WORKDIR}/debug ${D}/init.d/00-debug
 
-    # lvm
-    install -m 0755 ${WORKDIR}/lvm ${D}/init.d/09-lvm
-
 
     # Create device nodes expected by some kernels in initramfs
     # before even executing /init.
