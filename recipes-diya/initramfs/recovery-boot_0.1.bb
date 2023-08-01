@@ -8,18 +8,13 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 PR = "r4"
 
-inherit allarch  useradd update-rc.d 
+inherit allarch  update-rc.d 
 
 SRC_URI = "file://init \
            file://confd \
           "
 
 S = "${WORKDIR}"
-
-USERADD_PACKAGES = "${PN}"
-GROUPADD_PACKAGES = "${PN}"
-
-USERADD_PARAM:${PN} = "-u 0 -d /root -r -s /bin/sh root"
 
 INITSCRIPT_NAME = "confd"
 INITSCRIPT_PARAMS = "start 30 S ."
