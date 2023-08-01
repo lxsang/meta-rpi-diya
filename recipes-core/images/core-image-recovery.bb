@@ -32,6 +32,6 @@ cat << 'EOF' >> "${IMAGE_ROOTFS}/etc/hostname"
 diyaid
 EOF
     # enable autologin
-    sed -i 's/getty/getty --autologin root/g' \
+    sed -i 's~1:12345:respawn:/sbin/getty root 38400 tty1~1:12345:respawn:/sbin/getty -a root -L tty1 38400 vt100~' \
 			"${IMAGE_ROOTFS}/etc/inittab"
 }
