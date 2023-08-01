@@ -15,19 +15,6 @@
 # 'foo' as 'bootparam_foo=true'
 # 'foo.bar[=value] as 'foo_bar=[value|true]'
 
-# Register a function to be called before running a module
-# The hook is called as:
-#   <function> pre <module>
-add_module_pre_hook() {
-	MODULE_PRE_HOOKS="$MODULE_PRE_HOOKS $1"
-}
-
-# Register a function to be called after running a module
-# The hook is called as:
-#   <function> post <module>
-add_module_post_hook() {
-	MODULE_POST_HOOKS="$MODULE_POST_HOOKS $1"
-}
 
 # Load kernel module
 load_kernel_module() {
@@ -68,9 +55,6 @@ fatal() {
 }
 
 # Variables shared amoung modules
-MODULE_PRE_HOOKS=""  # functions to call before running each module
-MODULE_POST_HOOKS="" # functions to call after running each module
-MODULES_DIR=/init.d  # place to look for modules
 EFI_DIR=/sys/firmware/efi  # place to store device firmware information
 
 # make mount stop complaining about missing /etc/fstab
@@ -121,46 +105,6 @@ else
 fi
 
 exec /sbin/init
-
-# active the back light
-echo  0 > /sys/class/backlight/backlight/bl_power
-
-# Load and run modules
-for m in $MODULES_DIR/*; do
-	# Skip backup files
-	if [ "`echo $m | sed -e 's/\~$//'`" != "$m" ]; then
-		continue
-	fi
-
-	module=`basename $m | cut -d'-' -f 2`
-	debug "Loading module $module"
-
-	# pre hooks
-	for h in $MODULE_PRE_HOOKS; do
-		debug "Calling module hook (pre): $h"
-		eval "$h pre $module"
-		debug "Finished module hook (pre): $h"
-	done
-
-	# process module
-	. $m
-
-	if ! eval "${module}_enabled"; then
-		debug "Skipping module $module"
-		continue
-	fi
-
-	debug "Running ${module}_run"
-	eval "${module}_run"
-
-	# post hooks
-	for h in $MODULE_POST_HOOKS; do
-		debug "Calling module hook (post): $h"
-		eval "$h post $module"
-		debug "Finished module hook (post): $h"
-	done
-done
-
 
 # Catch all
 fatal "ERROR: Initramfs failed to initialize the system."
