@@ -1,6 +1,11 @@
 
 DESCRIPTION = "Recovery initramfs image."
 
+INITRAMFS_SCRIPTS ?= "\
+                      initramfs-framework-base \
+                      initramfs-module-udev \
+                     "
+
 
 PACKAGE_INSTALL = "initramfs-boot busybox ${VIRTUAL-RUNTIME_base-utils} udev base-passwd ${ROOTFS_BOOTSTRAP_INSTALL}"
 
@@ -21,6 +26,3 @@ IMAGE_ROOTFS_EXTRA_SPACE = "0"
 
 # Use the same restriction as initramfs-module-install
 COMPATIBLE_HOST = '(x86_64.*|i.86.*|arm.*|aarch64.*)-(linux.*|freebsd.*)'
-
-
-IMAGE_PREPROCESS_COMMAND += "tinyinitrd;"
