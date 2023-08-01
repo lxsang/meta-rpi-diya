@@ -42,4 +42,4 @@ do_install() {
 }
 
 
-FILES:${PN} = "/init /init.d /dev"
+FILES:${PN} = "/etc /dev"
