@@ -15,6 +15,7 @@ SRC_URI = "file://init \
            file://udev \
            file://e2fs \
            file://debug \
+           file://initbb \
           "
 
 S = "${WORKDIR}"
@@ -23,7 +24,7 @@ do_install() {
     install -d ${D}/init.d
 
     # base
-    install -m 0755 ${WORKDIR}/init ${D}/init
+    install -m 0755 ${WORKDIR}/initbb ${D}/init
 
     # exec
     install -m 0755 ${WORKDIR}/exec ${D}/init.d/89-exec
