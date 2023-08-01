@@ -20,6 +20,7 @@ INITSCRIPT_NAME = "confd"
 INITSCRIPT_PARAMS = "start 30 S ."
 
 do_install() {
+    install -d ${D}/etc/init.d
 
     # base
     install -m 0755 ${WORKDIR}/init ${D}/init

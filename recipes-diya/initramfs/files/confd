@@ -11,6 +11,8 @@ case "$1" in
         echo  0 > /sys/class/backlight/backlight/bl_power
         # hostname
         echo "diya-recovery" > /proc/sys/kernel/hostname
+        # mount boot
+        mount /dev/mmcblk0p0 /boot
     ;;
     *)
         N=/etc/init.d/$NAME
