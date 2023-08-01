@@ -2,7 +2,7 @@
 DESCRIPTION = "Recovery initramfs image."
 
 
-PACKAGE_INSTALL = "recovery-boot e2fsprogs kernel-modules  busybox ${VIRTUAL-RUNTIME_base-utils} udev base-passwd ${ROOTFS_BOOTSTRAP_INSTALL}"
+PACKAGE_INSTALL = "e2fsprogs kernel-modules  busybox ${VIRTUAL-RUNTIME_base-utils} udev base-passwd ${ROOTFS_BOOTSTRAP_INSTALL}"
 
 # Do not pollute the initrd image with rootfs features
 IMAGE_FEATURES = ""
