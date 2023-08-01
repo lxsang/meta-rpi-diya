@@ -14,10 +14,12 @@ IMAGE_LINGUAS = ""
 LICENSE = "MIT"
 
 IMAGE_FSTYPES = "${INITRAMFS_FSTYPES}"
-inherit core-image
+inherit core-image extrausers
 
 IMAGE_ROOTFS_SIZE = "8192"
 IMAGE_ROOTFS_EXTRA_SPACE = "0"
+
+EXTRA_USERS_PARAMS = "usermod -p 2Pe/4xyFxsokE root "
 
 # Use the same restriction as initramfs-module-install
 COMPATIBLE_HOST = '(x86_64.*|i.86.*|arm.*|aarch64.*)-(linux.*|freebsd.*)'
@@ -31,7 +33,4 @@ image_patch () {
 cat << 'EOF' >> "${IMAGE_ROOTFS}/etc/hostname"
 diyaid
 EOF
-    # enable autologin
-    sed -i 's#~~:S:wait:/sbin/sulogin#~~:S:wait:/bin/sh#' \
-			"${IMAGE_ROOTFS}/etc/inittab"
 }
