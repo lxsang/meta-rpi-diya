@@ -11,13 +11,14 @@ PR = "r4"
 inherit allarch  update-rc.d 
 
 SRC_URI = "file://init \
-           file://confd \
+           file://debug \
+           file://udev \
           "
 
 S = "${WORKDIR}"
 
-INITSCRIPT_NAME = "confd"
-INITSCRIPT_PARAMS = "start 30 S ."
+# INITSCRIPT_NAME = "confd"
+# INITSCRIPT_PARAMS = "start 30 S ."
 
 do_install() {
     install -d ${D}/init.d
@@ -26,12 +27,10 @@ do_install() {
     install -m 0755 ${WORKDIR}/init ${D}/init
 
     # udev
-    # install -m 0755 ${WORKDIR}/udev ${D}/init.d/01-udev
+    install -m 0755 ${WORKDIR}/udev ${D}/init.d/01-udev
 
     # debug
-    # install -m 0755 ${WORKDIR}/debug ${D}/init.d/00-debug
-
-    install -m 0755 ${WORKDIR}/confd ${D}/init.d/confd
+    install -m 0755 ${WORKDIR}/debug ${D}/init.d/00-debug
 
     # Create device nodes expected by some kernels in initramfs
     # before even executing /init.
