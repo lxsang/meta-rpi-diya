@@ -7,7 +7,7 @@ PACKAGE_INSTALL = "recovery-boot lvm2  busybox ${VIRTUAL-RUNTIME_base-utils} ude
 # Do not pollute the initrd image with rootfs features
 IMAGE_FEATURES = ""
 
-export IMAGE_BASENAME = "${MLPREFIX}core-image-recovery"
+export IMAGE_BASENAME = "${MLPREFIX}recovery"
 IMAGE_NAME_SUFFIX ?= ""
 IMAGE_LINGUAS = ""
 
