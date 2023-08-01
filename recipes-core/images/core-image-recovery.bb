@@ -22,8 +22,8 @@ IMAGE_ROOTFS_EXTRA_SPACE = "0"
 # Use the same restriction as initramfs-module-install
 COMPATIBLE_HOST = '(x86_64.*|i.86.*|arm.*|aarch64.*)-(linux.*|freebsd.*)'
 
-ROOTFS_POSTPROCESS_COMMAND += "clobber_unused"
+IMAGE_PREPROCESS_COMMAND += "clobber_unused;"
 
 clobber_unused () {
-    rm ${IMAGE_ROOTFS}/boot/*
+    rm -rf ${IMAGE_ROOTFS}/boot/*
 }
