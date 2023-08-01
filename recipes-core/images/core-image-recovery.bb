@@ -2,7 +2,7 @@
 DESCRIPTION = "Recovery initramfs image."
 
 INITRAMFS_SCRIPTS = "\
-                      initramfs-framework-base \
+                       initramfs-boot \
                       initramfs-module-udev \
                      "
 
