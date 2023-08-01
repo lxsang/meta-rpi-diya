@@ -22,8 +22,16 @@ IMAGE_ROOTFS_EXTRA_SPACE = "0"
 # Use the same restriction as initramfs-module-install
 COMPATIBLE_HOST = '(x86_64.*|i.86.*|arm.*|aarch64.*)-(linux.*|freebsd.*)'
 
-IMAGE_PREPROCESS_COMMAND += "clobber_unused;"
+IMAGE_PREPROCESS_COMMAND += "image_patch;"
 
-clobber_unused () {
+image_patch () {
+    # delete unused image
     rm -rf ${IMAGE_ROOTFS}/boot/*
+    # setup hostname
+cat << 'EOF' >> "${IMAGE_ROOTFS}/etc/hostname"
+diyaid
+EOF
+    # enable autologin
+    sed -i 's/options="/&--autologin root /' \
+			"${IMAGE_ROOTFS}${base_bindir}/start_getty"
 }
