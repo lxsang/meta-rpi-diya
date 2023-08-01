@@ -12,7 +12,7 @@ case "$1" in
         # hostname
         echo "diya-recovery" > /proc/sys/kernel/hostname
         # mount boot
-        mount /dev/mmcblk0p0 /boot
+        mount /dev/mmcblk0p1 /boot
     ;;
     *)
         N=/etc/init.d/$NAME
