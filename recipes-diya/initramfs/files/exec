@@ -10,8 +10,7 @@ exec_enabled() {
 
 exec_run() {
 	if [ ! -d $EXEC_DIR ]; then
-		msg "No contents to exec in $EXEC_DIR. Starting shell ..."
-		sh
+		msg "No contents to exec in $EXEC_DIR. skipping ..."
 	fi
 
 	# Load and run modules
