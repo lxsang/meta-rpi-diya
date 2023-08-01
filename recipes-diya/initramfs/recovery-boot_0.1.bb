@@ -15,7 +15,6 @@ SRC_URI = "file://init \
            file://udev \
            file://e2fs \
            file://debug \
-           file://lvm \
           "
 
 S = "${WORKDIR}"
