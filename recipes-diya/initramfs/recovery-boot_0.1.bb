@@ -25,7 +25,7 @@ do_install() {
     install -d ${D}/etc/init.d
 
     # base
-    # install -m 0755 ${WORKDIR}/init ${D}/init
+    install -m 0755 ${WORKDIR}/init ${D}/init
 
     # udev
     # install -m 0755 ${WORKDIR}/udev ${D}/init.d/01-udev
@@ -42,4 +42,4 @@ do_install() {
 }
 
 
-FILES:${PN} = "/etc /dev"
+FILES:${PN} = "/etc /init /dev"

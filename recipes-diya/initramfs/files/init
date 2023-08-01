@@ -120,6 +120,8 @@ else
 	fi
 fi
 
+exec /sbin/init
+
 # active the back light
 echo  0 > /sys/class/backlight/backlight/bl_power
 
@@ -159,7 +161,6 @@ for m in $MODULES_DIR/*; do
 	done
 done
 
-exec /sbin/init
 
 # Catch all
 fatal "ERROR: Initramfs failed to initialize the system."
