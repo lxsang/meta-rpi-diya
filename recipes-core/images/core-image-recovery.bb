@@ -29,8 +29,4 @@ IMAGE_PREPROCESS_COMMAND += "image_patch;"
 image_patch () {
     # delete unused image
     rm -rf ${IMAGE_ROOTFS}/boot/*
-    # setup hostname
-cat << 'EOF' >> "${IMAGE_ROOTFS}/etc/hostname"
-diyaid
-EOF
 }

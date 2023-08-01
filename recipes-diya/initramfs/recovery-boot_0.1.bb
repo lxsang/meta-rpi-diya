@@ -8,13 +8,10 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 PR = "r4"
 
-inherit useradd
-
-inherit allarch
+inherit allarch  useradd update-rc.d 
 
 SRC_URI = "file://init \
-           file://udev \
-           file://debug \
+           file://confd \
           "
 
 S = "${WORKDIR}"
@@ -24,6 +21,9 @@ GROUPADD_PACKAGES = "${PN}"
 
 USERADD_PARAM:${PN} = "-u 0 -d /root -r -s /bin/sh root"
 
+INITSCRIPT_NAME = "confd"
+INITSCRIPT_PARAMS = "start 30 S ."
+
 do_install() {
     install -d ${D}/init.d
 
@@ -31,11 +31,12 @@ do_install() {
     install -m 0755 ${WORKDIR}/init ${D}/init
 
     # udev
-    install -m 0755 ${WORKDIR}/udev ${D}/init.d/01-udev
+    # install -m 0755 ${WORKDIR}/udev ${D}/init.d/01-udev
 
     # debug
-    install -m 0755 ${WORKDIR}/debug ${D}/init.d/00-debug
+    # install -m 0755 ${WORKDIR}/debug ${D}/init.d/00-debug
 
+    install -m 0755 ${WORKDIR}/confd ${D}/init.d/confd
 
     # Create device nodes expected by some kernels in initramfs
     # before even executing /init.
