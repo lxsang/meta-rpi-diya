@@ -1,13 +1,8 @@
 
 DESCRIPTION = "Recovery initramfs image."
 
-INITRAMFS_SCRIPTS = "\
-                       initramfs-boot \
-                      initramfs-module-udev \
-                     "
 
-
-PACKAGE_INSTALL = "${INITRAMFS_SCRIPTS} busybox ${VIRTUAL-RUNTIME_base-utils} udev base-passwd ${ROOTFS_BOOTSTRAP_INSTALL}"
+PACKAGE_INSTALL = "initramfs-boot initramfs-module-udev  busybox ${VIRTUAL-RUNTIME_base-utils} udev base-passwd ${ROOTFS_BOOTSTRAP_INSTALL}"
 
 # Do not pollute the initrd image with rootfs features
 IMAGE_FEATURES = ""
