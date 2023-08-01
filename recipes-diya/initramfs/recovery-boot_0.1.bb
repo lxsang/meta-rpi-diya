@@ -8,7 +8,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 PR = "r4"
 
-inherit allarch  update-rc.d 
+inherit allarch
 
 SRC_URI = "file://init \
            file://debug \
