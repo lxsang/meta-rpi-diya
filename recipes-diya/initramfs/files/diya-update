@@ -45,16 +45,13 @@ rootfs()
         return 1
     fi
     echo "Installing new rootfs"
-    cd $TMP_MOUNT
-    if ! tar --same-owner -xpvf "$path" .; then
+    if ! tar --same-owner -xpvf "$path" -C $TMP_MOUNT; then
         echo "Error: unable to install new rootfs. Restore and quit"
-        cd
         umount $TMP_MOUNT
         dd if=$backup_file of=$ROOTFS_DEV
         return 1
     fi
     sync
-    cd
     echo "Unmount the rootfs partition"
     umount $TMP_MOUNT
     echo "Done"
