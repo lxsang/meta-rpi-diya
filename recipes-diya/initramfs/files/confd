@@ -10,18 +10,10 @@ case "$1" in
         # for some reason the LCD backlight is turned off
         # need to turn it on manually
         echo  0 > /sys/class/backlight/backlight/bl_power
-        # hostname
-        echo "diya-recovery" > /proc/sys/kernel/hostname
-        # mount boot
-        mount /dev/mmcblk0p1 /boot
 
         cat << EOF > /boot/extraconfig.txt
 # initramfs recovery-${MACHINE}.cpio.gz followkernel
 EOF
-    ;;
-    
-    stop)
-        umount /boot
     ;;
 
     *)

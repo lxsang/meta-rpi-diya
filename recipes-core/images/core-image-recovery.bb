@@ -41,6 +41,11 @@ IMAGE_PREPROCESS_COMMAND += "image_patch;"
 image_patch () {
     # delete unused image
     rm -rf ${IMAGE_ROOTFS}/boot/*
-    # patch inittab runlevel 6
-
+    # create /etc/fstab
+    cat << EOF > ${IMAGE_ROOTFS}/etc/fstab
+/dev/mmcblk0p1       /boot          auto       defaults,sync,noauto  0  0
+EOF
+    cat << EOF > ${IMAGE_ROOTFS}/etc/hostname
+diya-recovery
+EOF
 }
