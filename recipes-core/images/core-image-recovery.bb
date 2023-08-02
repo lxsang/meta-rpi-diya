@@ -44,6 +44,7 @@ image_patch () {
     # create /etc/fstab
     cat << EOF > ${IMAGE_ROOTFS}/etc/fstab
 /dev/mmcblk0p1       /boot          auto       defaults  0  0
+/dev/mmcblk0p4       /home          auto       defaults  0  0
 
 EOF
     cat << EOF > ${IMAGE_ROOTFS}/etc/hostname
