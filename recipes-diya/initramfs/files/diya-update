@@ -71,7 +71,9 @@ kernel()
         return 1
     fi
     echo "Update kernel"
-    cp "$path" /boot/kernel8.img
+    cp -v "$path" /boot/kernel8.img
+    cd /boot
+    sync
     echo "Done"
     return 0
 }
@@ -89,7 +91,7 @@ initramfs()
         return 1
     fi
     echo "Update recovery intramfs"
-    cp "$path" /boot/$DEFAULT_INITRAMFS_NAME
+    cp -v "$path" /boot/$DEFAULT_INITRAMFS_NAME
     cd /boot
     sync
     echo "Done"
