@@ -24,7 +24,7 @@ do_install() {
     install -d ${D}/${sysconfdir}/init.d/
     install -d ${DEPLOY_DIR_IMAGE}
     install -m 0755 ${WORKDIR}/confd ${D}/${sysconfdir}/init.d/confd
-    install -d ${D}/usr/bin/
+    install -d ${D}/usr/sbin/
     install -d ${D}/etc/default/volatiles
 	# install -m 0644 ${WORKDIR}/80_diya ${D}${sysconfdir}/default/volatiles
     install -m 0755 ${WORKDIR}/expandfs.sh ${D}/usr/sbin/expandfs.sh
