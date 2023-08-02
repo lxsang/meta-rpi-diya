@@ -19,6 +19,11 @@ case "$1" in
 # initramfs recovery-${MACHINE}.cpio.gz followkernel
 EOF
     ;;
+    
+    stop)
+        umount /boot
+    ;;
+
     *)
         N=/etc/init.d/$NAME
         echo "Usage: $N {start}" >&2
