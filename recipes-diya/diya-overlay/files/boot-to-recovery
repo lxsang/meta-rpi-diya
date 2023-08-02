@@ -9,7 +9,7 @@ fi
 
 # prepare env for recovery boot
 cat << EOF > /boot/extraconfig.txt
-initramfs recovery-${MACHINE}.cpio.gz followkernel
+initramfs recovery-$MACHINE.cpio.gz followkernel
 EOF
 echo "Rebooting to recovery mode"
 reboot

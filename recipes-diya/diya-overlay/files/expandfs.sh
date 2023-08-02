@@ -1,4 +1,10 @@
 #! /bin/sh
+
+if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    echo "$0 shall be run as root"
+    exit 1
+fi
+
 line=$(
 sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/mmcblk0 | grep /dev/mmcblk0p4
 p
