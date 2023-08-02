@@ -46,7 +46,7 @@ rootfs()
     fi
     echo "Installing new rootfs"
     cd $TMP_MOUNT
-    if ! tar -xpvf --same-owner "$path" .; then
+    if ! tar --same-owner -xpvf "$path" .; then
         echo "Error: unable to install new rootfs. Restore and quit"
         cd
         umount $TMP_MOUNT
