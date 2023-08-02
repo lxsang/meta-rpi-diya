@@ -51,6 +51,14 @@ rootfs()
         dd if=$backup_file of=$ROOTFS_DEV
         return 1
     fi
+    echo "Patch /etc/fstab"
+    cat << EOF >> $TMP_MOUNT/etc/fstab
+
+/dev/mmcblk0p1  /boot   vfat    defaults        0       0
+/dev/mmcblk0p3  /var/etc        ext4    defaults        0       0
+/dev/mmcblk0p4  /home   ext4    defaults        0       0
+
+EOF
     sync
     echo "Unmount the rootfs partition"
     umount $TMP_MOUNT
