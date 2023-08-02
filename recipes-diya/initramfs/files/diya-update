@@ -54,6 +54,7 @@ rootfs()
         return 1
     fi
     sync
+    cd
     echo "Unmount the rootfs partition"
     umount $TMP_MOUNT
     echo "Done"
