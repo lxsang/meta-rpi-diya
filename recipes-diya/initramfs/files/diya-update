@@ -37,7 +37,7 @@ rootfs()
         dd if=$backup_file of=$ROOTFS_DEV
         return 1
     fi
-
+    mkdir -p $TMP_MOUNT
     echo "Mount rootfs partition to $TMP_MOUNT"
     if ! mount $ROOTFS_DEV $TMP_MOUNT; then
         echo "Error: Unable to mount rootfs partition. Restore and quit"
