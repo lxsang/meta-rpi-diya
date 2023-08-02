@@ -1,0 +1,135 @@
+#! /bin/sh
+
+. /etc/profile
+
+DEFAULT_ROOTFS_NAME="rootfs-$MACHINE.tar.bz2"
+DEFAULT_KERNEL_NAME="Image-$MACHINE.bin"
+DEFAULT_INITRAMFS_NAME="recovery-$MACHINE.cpio.gz"
+UPDATE_SRC_PATH="/home/diya/.update"
+ROOTFS_DEV="/dev/mmcblk0p2"
+SUPPORTED_COMMAND="rootfs kernel initramfs"
+TMP_MOUNT="/tmp/rootfs"
+
+
+rootfs()
+{
+    filename=$1
+    if [ -z "$filename" ]; then
+        filename="$DEFAULT_ROOTFS_NAME"
+    fi
+    path="$UPDATE_SRC_PATH/$filename"
+    backup_file="$UPDATE_SRC_PATH/rootfs-backup.img"
+    echo "Checking rootfs at: $path"
+    if [ ! -e "$path" ]; then
+        echo "Error: rootfs file not found"
+        return 1
+    fi
+    # backup the rootfs file
+    echo "Backing up the current rootfs"
+    if ! dd if=$ROOTFS_DEV of=$backup_file; then
+        echo "Error: unable to backup current rootfs"
+        return 1
+    fi
+
+    echo "Format rootfs partition"
+    if ! mkfs.ext4 -F $ROOTFS_DEV; then
+        echo "Error: Unable to format rootfs partition. Restore and quit"
+        dd if=$backup_file of=$ROOTFS_DEV
+        return 1
+    fi
+
+    echo "Mount rootfs partition to $TMP_MOUNT"
+    if ! mount $ROOTFS_DEV $TMP_MOUNT; then
+        echo "Error: Unable to mount rootfs partition. Restore and quit"
+        dd if=$backup_file of=$ROOTFS_DEV
+        return 1
+    fi
+    echo "Installing new rootfs"
+    cd $TMP_MOUNT
+    if ! tar -xpvf --same-owner "$path" .; then
+        echo "Error: unable to install new rootfs. Restore and quit"
+        umount $TMP_MOUNT
+        dd if=$backup_file of=$ROOTFS_DEV
+        return 1
+    fi
+    sync
+    echo "Unmount the rootfs partition"
+    umount $TMP_MOUNT
+    echo "Done"
+    return 0
+}
+
+kernel()
+{
+    filename=$1
+    if [ -z "$filename" ]; then
+        filename="$DEFAULT_KERNEL_NAME"
+    fi
+    path="$UPDATE_SRC_PATH/$filename"
+    echo "Checking kernel at: $path"
+    if [ ! -e "$path" ]; then
+        echo "Error: kernel file not found"
+        return 1
+    fi
+    echo "Update kernel"
+    cp "$path" /boot/kernel8.img
+    echo "Done"
+    return 0
+}
+
+initramfs()
+{
+    filename=$1
+    if [ -z "$filename" ]; then
+        filename="$DEFAULT_INITRAMFS_NAME"
+    fi
+    path="$UPDATE_SRC_PATH/$filename"
+    echo "Checking initramfs at: $path"
+    if [ ! -e "$path" ]; then
+        echo "Error: initramfs file not found"
+        return 1
+    fi
+    echo "Update recovery intramfs"
+    cp "$path" /boot/$DEFAULT_INITRAMFS_NAME
+    cd /boot
+    sync
+    echo "Done"
+    return 0
+}
+
+command_valid() {
+    VALUE=$1
+    echo $SUPPORTED_COMMAND | tr " " '\n' | grep -F -q -x "$VALUE"
+}
+
+
+name=$(basename $0)
+cmd=${name#diya-update-}
+file="$1"
+
+if ! command_valid "$cmd"; then
+    cmd="$1"
+    file="$2"
+fi
+
+case "$cmd" in
+    rootfs)
+        rootfs $1
+    ;;
+    kernel)
+        kernel $1
+    ;;
+    initramfs)
+        initramfs $1
+    ;;
+    *)
+cat << EOF
+Usage: $name <command> [file]
+    commands:
+        - rootfs: update rootfs
+        - kernel: update kernel image
+        - initramfs: update recovery initramfs
+EOF
+    exit 1
+    ;;
+esac
