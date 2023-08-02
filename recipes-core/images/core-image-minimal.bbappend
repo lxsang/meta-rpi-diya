@@ -12,7 +12,7 @@ EXTRA_USERS_PARAMS = "usermod -p 2Pe/4xyFxsokE diya; \
                         usermod -a -G avahi diya; \
                         usermod -a -G sudo diya \
                         "
-IMAGE_BOOT_FILES:append = "fs_resize extraconfig.txt cmd.recovery recovery-${MACHINE}.cpio.gz "
+IMAGE_BOOT_FILES:append = "fs_resize extraconfig.txt recovery-${MACHINE}.cpio.gz "
 
 IMAGE_INSTALL:append = "libcurl \
                         libdrm \
@@ -57,3 +57,9 @@ IMAGE_INSTALL:append = "libcurl \
                         gdbserver \
                         " 
 
+IMAGE_PREPROCESS_COMMAND += "image_patch;"
+
+image_patch () {
+    # delete unused kernel image
+    rm -rf ${IMAGE_ROOTFS}/boot/*
+}

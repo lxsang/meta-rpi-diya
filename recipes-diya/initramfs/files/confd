@@ -2,6 +2,7 @@
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 DESC="Custom configuration"
+. /etc/profile
 
 case "$1" in
     start)
@@ -13,6 +14,10 @@ case "$1" in
         echo "diya-recovery" > /proc/sys/kernel/hostname
         # mount boot
         mount /dev/mmcblk0p1 /boot
+
+        cat << EOF >> /boot/extraconfig.txt
+# initramfs recovery-${MACHINE}.cpio.gz followkernel
+EOF
     ;;
     *)
         N=/etc/init.d/$NAME

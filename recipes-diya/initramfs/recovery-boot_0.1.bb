@@ -25,7 +25,9 @@ do_install() {
     # base
     install -m 0755 ${WORKDIR}/init ${D}/init
     install -m 0755 ${WORKDIR}/confd ${D}/etc/init.d/confd
-
+cat << EOF >> ${D}/etc/profile
+export MACHINE=${MACHINE}
+EOF
     # Create device nodes expected by some kernels in initramfs
     # before even executing /init.
     install -d ${D}/dev

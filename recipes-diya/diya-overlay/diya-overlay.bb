@@ -7,7 +7,6 @@ SRC_URI += "file://confd \
             file://expandfs.sh \
             file://80_diya \
             file://fs_resize \
-            file://cmd.recovery \
             file://extraconfig.txt"
 
 
@@ -30,8 +29,10 @@ do_install() {
 	# install -m 0644 ${WORKDIR}/80_diya ${D}${sysconfdir}/default/volatiles
     install -m 0755 ${WORKDIR}/expandfs.sh ${D}/usr/bin/expandfs.sh
     install -m 0755 ${WORKDIR}/fs_resize ${DEPLOY_DIR_IMAGE}/
-    install -m 0755 ${WORKDIR}/cmd.recovery ${DEPLOY_DIR_IMAGE}/
-    install -m 0755 ${WORKDIR}/extraconfig.txt ${DEPLOY_DIR_IMAGE}/
+
+    cat << EOF >> ${DEPLOY_DIR_IMAGE}/extraconfig.txt
+# initramfs recovery-${MACHINE}.cpio.gz followkernel
+EOF
 
     install -d ${D}/var/etc
     install -d ${D}/var/etc/upper

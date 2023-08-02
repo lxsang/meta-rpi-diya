@@ -12,4 +12,8 @@ if [ ! -e "$XDG_RUNTIME_DIR" ]; then
 fi
 export TERM=xterm-256color
 EOF
+
+cat << EOF >> "${D}${sysconfdir}/profile"
+export MACHINE=$MACHINE
+EOF
 }
