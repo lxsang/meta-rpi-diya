@@ -43,7 +43,8 @@ image_patch () {
     rm -rf ${IMAGE_ROOTFS}/boot/*
     # create /etc/fstab
     cat << EOF > ${IMAGE_ROOTFS}/etc/fstab
-/dev/mmcblk0p1       /boot          auto       defaults,sync,noauto  0  0
+/dev/mmcblk0p1       /boot          auto       defaults  0  0
+
 EOF
     cat << EOF > ${IMAGE_ROOTFS}/etc/hostname
 diya-recovery
