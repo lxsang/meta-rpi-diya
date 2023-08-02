@@ -6,8 +6,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 SRC_URI += "file://confd \
             file://expandfs.sh \
             file://80_diya \
-            file://fs_resize \
-            file://extraconfig.txt"
+            file://fs_resize"
 
 
 inherit update-rc.d useradd
