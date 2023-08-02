@@ -103,8 +103,8 @@ else
 		fatal "ERROR: /dev doesn't exist and kernel doesn't has devtmpfs enabled."
 	fi
 fi
-# run init in single user mode
-exec /sbin/init -s
+# run init
+exec /sbin/init
 
 # Catch all
 fatal "ERROR: Initramfs failed to initialize the system."
