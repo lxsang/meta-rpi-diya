@@ -14,6 +14,6 @@ export TERM=xterm-256color
 EOF
 
 cat << EOF >> "${D}${sysconfdir}/profile"
-export MACHINE=$MACHINE
+export MACHINE=${MACHINE}
 EOF
 }
