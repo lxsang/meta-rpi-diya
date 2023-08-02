@@ -7,7 +7,7 @@ DEFAULT_KERNEL_NAME="Image-$MACHINE.bin"
 DEFAULT_INITRAMFS_NAME="recovery-$MACHINE.cpio.gz"
 UPDATE_SRC_PATH="/home/diya/.update"
 ROOTFS_DEV="/dev/mmcblk0p2"
-SUPPORTED_COMMAND="rootfs kernel initramfs"
+SUPPORTED_COMMAND="rootfs kernel initramfs all"
 TMP_MOUNT="/tmp/rootfs"
 
 
@@ -123,13 +123,16 @@ fi
 
 case "$cmd" in
     rootfs)
-        rootfs $1
+        rootfs $file
     ;;
     kernel)
-        kernel $1
+        kernel $file
     ;;
     initramfs)
-        initramfs $1
+        initramfs $file
+    ;;
+    all)
+        rootfs && kernel && initramfs
     ;;
     *)
 cat << EOF

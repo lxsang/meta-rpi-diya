@@ -35,7 +35,8 @@ EOF
     ln -sf /sbin/diya-update ${D}/sbin/diya-update-rootfs
     ln -sf /sbin/diya-update ${D}/sbin/diya-update-kernel
     ln -sf /sbin/diya-update ${D}/sbin/diya-update-initramfs
-
+    ln -sf /sbin/diya-update ${D}/sbin/diya-update-all
+    
     # Create device nodes expected by some kernels in initramfs
     # before even executing /init.
     install -d ${D}/dev
