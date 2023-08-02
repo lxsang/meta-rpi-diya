@@ -2,7 +2,19 @@
 DESCRIPTION = "Recovery initramfs image."
 
 
-PACKAGE_INSTALL = "recovery-boot dosfstools e2fsprogs util-linux-fsck kernel-modules  busybox sysvinit sysvinit-inittab ${VIRTUAL-RUNTIME_base-utils} udev base-passwd ${ROOTFS_BOOTSTRAP_INSTALL}"
+PACKAGE_INSTALL = "recovery-boot \
+                    dosfstools \
+                    e2fsprogs \
+                    util-linux-fsck \
+                    kernel-modules \
+                    busybox \
+                    sysvinit \
+                    sysvinit-inittab \
+                    ${VIRTUAL-RUNTIME_base-utils} \
+                    udev \
+                    initscripts \
+                    base-passwd \
+                    ${ROOTFS_BOOTSTRAP_INSTALL}"
 
 # Do not pollute the initrd image with rootfs features
 IMAGE_FEATURES = ""
@@ -29,4 +41,6 @@ IMAGE_PREPROCESS_COMMAND += "image_patch;"
 image_patch () {
     # delete unused image
     rm -rf ${IMAGE_ROOTFS}/boot/*
+    # patch inittab runlevel 6
+
 }
