@@ -54,6 +54,7 @@ IMAGE_INSTALL:append = "libcurl \
                         coreutils \
                         wayland wayland-protocols \
                         labwc foot swaybg swayidle swaylock wlr-randr wlopm sfwbar tofi wtype \
+                        mc \
                         gdbserver \
                         " 
 
