@@ -1,3 +1,0 @@
-# d root root 0755 /var/etc/upper none
-# d root root 0755 /var/etc/work none
-# l root root 0644 /etc/dropbear /var/etc/dropbear

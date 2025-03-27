@@ -1,1 +1,0 @@
-PACKAGECONFIG:remove = " systemd sysvinit man-pages "

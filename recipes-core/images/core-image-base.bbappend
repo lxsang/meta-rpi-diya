@@ -1,1 +1,0 @@
-core-image-minimal.bbappend

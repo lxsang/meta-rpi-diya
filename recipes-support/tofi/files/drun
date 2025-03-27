@@ -1,9 +1,0 @@
-#! /bin/sh
-
-config="/etc/xdg/tofi/config"
-
-if [ -e "$HOME/.config/tofi/config" ]; then
-	config="$HOME/.config/tofi/config"
-fi
-
-tofi-drun -c "$config"
